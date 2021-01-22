@@ -13,12 +13,14 @@ namespace ConsoleAppProject.App01
 
         private double miles;
         private double feet;
+        public const int FEET_IN_MILES = 5280;
 
         /// <summary>
         /// Main run method
         /// </summary>
         public void Run()
         {
+            OutputHeader();
             InputMiles();
             CalculateFeet();
             OutputFeet();
@@ -40,7 +42,20 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private void CalculateFeet()
         {
+            feet = miles * FEET_IN_MILES;
+        }
 
+        /// <summary>
+        /// Output header to the user
+        /// </summary> 
+        private void OutputHeader()
+        {
+            Console.WriteLine();
+            Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-");
+            Console.WriteLine("       Convert miles to feet        ");
+            Console.WriteLine("         by Phill Horrocks          ");
+            Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-");
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -48,7 +63,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private void OutputFeet()
         {
-
+            Console.WriteLine(miles + " miles is " + feet + " in feet");
         }
 
     }
