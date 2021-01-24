@@ -10,14 +10,10 @@ namespace ConsoleAppProject.App01
     /// </author>
     public class DistanceConverter
     {
-
         private double miles;
         private double feet;
         public const int FEET_IN_MILES = 5280;
 
-        /// <summary>
-        /// Main run method
-        /// </summary>
         public void Run()
         {
             OutputHeader();
@@ -30,6 +26,7 @@ namespace ConsoleAppProject.App01
         /// Ask the user to input the miles
         /// Input miles as a double
         /// </summary>
+        /// 
         private void InputMiles()
         {
             Console.Write("Please enter the number of miles >");

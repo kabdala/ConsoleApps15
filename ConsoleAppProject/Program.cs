@@ -23,6 +23,8 @@ namespace ConsoleAppProject
 
             DistanceConverter converter = new DistanceConverter();
             converter.Run();
+
+            //TODO: Need to create a user menu and convert feet to miles and miles to metres
         }
     }
 }
