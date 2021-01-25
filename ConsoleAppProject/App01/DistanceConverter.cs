@@ -19,14 +19,14 @@ namespace ConsoleAppProject.App01
         public void MilesToFeet()
         {
             OutputHeader("Convert miles to feet...");
-            InputMiles();
+            miles = InputDistance("Please enter the number of miles: ");
             CalculateFeet();
             OutputMiles();
         }
         public void FeetToMiles()
         {
             OutputHeader("Convert feet to miles...");
-            InputFeet();
+            feet = InputDistance("Please enter the number of feet: ");
             CalculateMiles();
             OutputFeet();
         }
@@ -34,42 +34,26 @@ namespace ConsoleAppProject.App01
         public void MilesToMetres()
         {
             OutputHeader("Convert miles to metres...");
-            InputMiles();
+            miles = InputDistance("Please enter the number of metres: ");
             CalculateMetres();
             OutputMetres();
         }
 
         /// <summary>
-        /// Ask the user to input the miles
-        /// Input miles as a double
+        /// General purpose imput method
+        /// Ask the user to input a distance unit
+        /// Input the unit as a double
         /// </summary>
-        /// 
-        private void InputMiles()
+        private double InputDistance(string prompt)
         {
-            Console.Write("Please enter the number of miles: ");
+            Console.Write(prompt);
             string value = Console.ReadLine();
-            miles = Convert.ToDouble(value);
+            return Convert.ToDouble(value);
         }
 
-        /// <summary>
-        /// Ask the user for the number of feet.
-        /// </summary>
-        private void InputFeet()
-        {
-            Console.Write("Please enter the number of feet: ");
-            string value = Console.ReadLine();
-            feet = Convert.ToDouble(value);
-        }
-        
-        /// <summary>
-        /// Ask the user for the number of metres.
-        /// </summary>
-        private void InputMetres()
-        {
-            Console.Write("Please enter the number of metres to convert to miles > ");
-            string value = Console.ReadLine();
-            metres = Convert.ToDouble(value);
-        }
+
+
+
 
 
 
