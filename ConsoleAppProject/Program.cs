@@ -21,8 +21,14 @@ namespace ConsoleAppProject
             Console.WriteLine();
             Console.Beep();
 
+            // Create a new instance of the DistanceConverter class
+            // and call it converter
             DistanceConverter converter = new DistanceConverter();
-            converter.Run();
+
+            // Execute each method in turn
+            converter.MilesToFeet();
+            converter.FeetToMiles();
+            converter.MilesToMetres();
 
             //TODO: Need to create a user menu and convert feet to miles and miles to metres
         }
