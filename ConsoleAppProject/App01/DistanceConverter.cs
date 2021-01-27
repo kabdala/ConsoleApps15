@@ -6,7 +6,7 @@ namespace ConsoleAppProject.App01
     /// This is a console app to convert distance from one unit to another
     /// </summary>
     /// <author>
-    /// Phill Horrocks version 0.2
+    /// Phill Horrocks version 0.3
     /// </author>
     public class DistanceConverter
     {
