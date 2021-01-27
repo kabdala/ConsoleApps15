@@ -16,27 +16,31 @@ namespace ConsoleAppProject.App01
         public const int FEET_IN_MILES = 5280;
         public const double METRES_IN_MILES = 1609.34;
 
+        public void OutputDistance(double fromDistance, string fromUnit, double toDistance, string toUnit)
+        {
+            Console.WriteLine($" {fromDistance} {fromUnit} is {toDistance} {toUnit}");
+        }
         public void MilesToFeet()
         {
             OutputHeader("Convert miles to feet...");
             miles = InputDistance("Please enter the number of miles: ");
             CalculateFeet();
-            OutputMiles();
+            OutputDistance(miles, nameof(miles), feet, nameof(feet));
         }
         public void FeetToMiles()
         {
             OutputHeader("Convert feet to miles...");
             feet = InputDistance("Please enter the number of feet: ");
             CalculateMiles();
-            OutputFeet();
+            OutputDistance(feet, nameof(feet), miles, nameof(miles));
         }
 
         public void MilesToMetres()
         {
             OutputHeader("Convert miles to metres...");
-            miles = InputDistance("Please enter the number of metres: ");
+            miles = InputDistance("Please enter the number of miles: ");
             CalculateMetres();
-            OutputMetres();
+            OutputDistance(miles, nameof(miles), metres, nameof(metres));
         }
 
         /// <summary>
