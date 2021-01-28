@@ -18,14 +18,12 @@ namespace ConsoleAppProject.App01
         private string fromUnit;
         private string toUnit;
 
-
-        private double miles;
-        private double feet;
-        private double metres;
+        // Conversions
         public const int FEET_IN_MILES = 5280;
         public const double METRES_IN_MILES = 1609.34;
         public const double FEET_IN_METRES = 3.28084;
 
+        // Strings for units
         public const string FEET = "Feet";
         public const string MILES = "Miles";
         public const string METRES = "Metres";
@@ -135,25 +133,20 @@ namespace ConsoleAppProject.App01
 
 
 
-
-
-
-
-      
-
         /// <summary>
         /// Output header to the user
         /// </summary> 
         private void OutputHeader()
         {
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
             Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-");
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("     Convert units of distance      ");
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("         by Phill Horrocks          ");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-");
-            //Console.WriteLine();
-            //Console.WriteLine(prompt);
-            //Console.WriteLine();
         }
 
 
