@@ -71,11 +71,11 @@ namespace ConsoleAppProject.App01
             }
             else if (fromUnit == MILES && toUnit == METRES)
             {
-                toDistance = fromDistance / METRES_IN_MILES;
+                toDistance = fromDistance * METRES_IN_MILES;
             }
             else if (fromUnit == METRES && toUnit == MILES)
             {
-                toDistance = fromDistance * METRES_IN_MILES;
+                toDistance = fromDistance / METRES_IN_MILES;
             }
         }
 
