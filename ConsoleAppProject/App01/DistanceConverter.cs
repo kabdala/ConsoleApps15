@@ -6,13 +6,18 @@ namespace ConsoleAppProject.App01
     /// This is a console app to convert distance from one unit to another
     /// It will prompt the user for a distance in one unit (fromUnit) to
     /// be converted into another unit (toUnit)
+    /// 
+    /// The units available for conversion are:
+    /// 1. Miles
+    /// 2. Feet
+    /// 3. Metres
     /// </summary>
     /// <author>
-    /// Phill Horrocks version 0.5
+    /// Phill Horrocks version 0.6
     /// </author>
     public class DistanceConverter
     {
-        // More generalised variables
+        // Setup the distance variables
         private double fromDistance;
         private double toDistance;
         private DistanceUnits fromUnit;
@@ -23,17 +28,15 @@ namespace ConsoleAppProject.App01
         public const double METRES_IN_MILES = 1609.34;
         public const double FEET_IN_METRES = 3.28084;
 
-        // Strings for units
-        //public const string FEET = "Feet";
-        //public const string MILES = "Miles";
-        //public const string METRES = "Metres";
-
         public DistanceConverter()
         {
             fromUnit = DistanceUnits.Miles;
             toUnit = DistanceUnits.Feet;
         }
-
+        /// <summary>
+        /// Output the results of the conversion back
+        /// to the user
+        /// </summary>
         public void OutputDistance()
         {
             Console.WriteLine($"\n {fromDistance} {fromUnit} is {toDistance} {toUnit}");
@@ -50,7 +53,10 @@ namespace ConsoleAppProject.App01
             CalulateDistance();
             OutputDistance();
         }
-
+        /// <summary>
+        /// Calculate the conversion, referencing the enum
+        /// to get the units
+        /// </summary>
         private void CalulateDistance()
         {
             if (fromUnit == DistanceUnits.Miles && toUnit == DistanceUnits.Feet)
@@ -79,30 +85,35 @@ namespace ConsoleAppProject.App01
             }
         }
 
+
         private DistanceUnits SelectUnit(string prompt)
         {
             string choice = DisplayChoices(prompt);
-            DistanceUnits unit = ExecuteChoices(choice);
-            Console.WriteLine($"\n You have selected {unit}");
+            DistanceUnits unit = ExecuteChoice(choice);
             return unit;
         }
 
-        private DistanceUnits ExecuteChoices(string choice)
+        private DistanceUnits ExecuteChoice(string choice)
         {
-            if (choice.Equals("1"))
+            //used to store local choice of unit
+            DistanceUnits unit;
+
+            switch (choice)
             {
-                return DistanceUnits.Feet;
-            }
-            else if (choice == "2")
-            {
-                return DistanceUnits.Metres;
-            }
-            else if (choice.Equals("3"))
-            {
-                return DistanceUnits.Miles;
+                case "1": unit = DistanceUnits.Feet; break;
+                case "2": unit = DistanceUnits.Metres; break;
+                case "3": unit = DistanceUnits.Miles; break;
+                default: unit = DistanceUnits.NoUnit; break;
             }
 
-            return DistanceUnits.NoUnit;
+            if (unit == DistanceUnits.NoUnit)
+            {
+                Console.WriteLine("\n\nI'm sorry Dave, I'm afraid I can't do that...");
+                Console.WriteLine("You must select a digit between 1 and 3");
+                Console.WriteLine("Daisy... Daisy...\n\n");
+            }
+            Console.WriteLine($"\n You have selected: {unit}");
+            return unit;
         }
 
         private static string DisplayChoices(string prompt)

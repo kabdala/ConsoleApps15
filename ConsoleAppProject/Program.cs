@@ -15,6 +15,7 @@ namespace ConsoleAppProject
     {
         public static void Main(string[] args)
         {
+
             Console.ForegroundColor = ConsoleColor.Blue;
             
             Console.WriteLine("\n\nBNU CO453 Applications Programming 2020-2021!");
