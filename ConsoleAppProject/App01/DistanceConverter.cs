@@ -15,8 +15,8 @@ namespace ConsoleAppProject.App01
         // More generalised variables
         private double fromDistance;
         private double toDistance;
-        private string fromUnit;
-        private string toUnit;
+        private DistanceUnits fromUnit;
+        private DistanceUnits toUnit;
 
         // Conversions
         public const int FEET_IN_MILES = 5280;
@@ -24,14 +24,14 @@ namespace ConsoleAppProject.App01
         public const double FEET_IN_METRES = 3.28084;
 
         // Strings for units
-        public const string FEET = "Feet";
-        public const string MILES = "Miles";
-        public const string METRES = "Metres";
+        //public const string FEET = "Feet";
+        //public const string MILES = "Miles";
+        //public const string METRES = "Metres";
 
         public DistanceConverter()
         {
-            fromUnit = MILES;
-            toUnit = FEET;
+            fromUnit = DistanceUnits.Miles;
+            toUnit = DistanceUnits.Feet;
         }
 
         public void OutputDistance()
@@ -53,65 +53,64 @@ namespace ConsoleAppProject.App01
 
         private void CalulateDistance()
         {
-            if (fromUnit == MILES && toUnit == FEET)
+            if (fromUnit == DistanceUnits.Miles && toUnit == DistanceUnits.Feet)
             {
                 toDistance = fromDistance * FEET_IN_MILES;
             }
-            else if (fromUnit == FEET && toUnit == MILES)
+            else if (fromUnit == DistanceUnits.Feet && toUnit == DistanceUnits.Miles)
             {
                 toDistance = fromDistance / FEET_IN_MILES;
             }
-            else if (fromUnit == FEET && toUnit == METRES)
+            else if (fromUnit == DistanceUnits.Feet && toUnit == DistanceUnits.Metres)
             {
                 toDistance = fromDistance / FEET_IN_METRES;
             }
-            else if (fromUnit == METRES && toUnit == FEET)
+            else if (fromUnit == DistanceUnits.Metres && toUnit == DistanceUnits.Feet)
             {
                 toDistance = fromDistance * FEET_IN_METRES;
             }
-            else if (fromUnit == MILES && toUnit == METRES)
+            else if (fromUnit == DistanceUnits.Miles && toUnit == DistanceUnits.Metres)
             {
                 toDistance = fromDistance * METRES_IN_MILES;
             }
-            else if (fromUnit == METRES && toUnit == MILES)
+            else if (fromUnit == DistanceUnits.Metres && toUnit == DistanceUnits.Miles)
             {
                 toDistance = fromDistance / METRES_IN_MILES;
             }
         }
 
-        private string SelectUnit(string prompt)
+        private DistanceUnits SelectUnit(string prompt)
         {
             string choice = DisplayChoices(prompt);
-
-            string unit = ExecuteChoices(choice);
+            DistanceUnits unit = ExecuteChoices(choice);
             Console.WriteLine($"\n You have selected {unit}");
             return unit;
         }
 
-        private static string ExecuteChoices(string choice)
+        private DistanceUnits ExecuteChoices(string choice)
         {
             if (choice.Equals("1"))
             {
-                return FEET;
+                return DistanceUnits.Feet;
             }
             else if (choice == "2")
             {
-                return METRES;
+                return DistanceUnits.Metres;
             }
             else if (choice.Equals("3"))
             {
-                return MILES;
+                return DistanceUnits.Miles;
             }
 
-            return null;
+            return DistanceUnits.NoUnit;
         }
 
         private static string DisplayChoices(string prompt)
         {
             Console.WriteLine();
-            Console.WriteLine($"1. {FEET}");
-            Console.WriteLine($"2. {METRES}");
-            Console.WriteLine($"3. {MILES}");
+            Console.WriteLine($"1. {DistanceUnits.Feet}");
+            Console.WriteLine($"2. {DistanceUnits.Metres}");
+            Console.WriteLine($"3. {DistanceUnits.Miles}");
             Console.WriteLine();
 
             Console.Write(prompt);
