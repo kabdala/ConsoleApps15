@@ -1,4 +1,4 @@
-# C# Console Applications App01 to App05
+# C# Console / Web Applications App01 to App05
 | Author | Details |
 | ---- | ---- |
 **Name**: | Phill Horrocks  |
