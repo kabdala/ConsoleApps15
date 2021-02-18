@@ -85,13 +85,18 @@ namespace ConsoleAppProject.App01
             }
         }
 
-
+        /// <summary>
+        /// Ask the user for the unit
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <returns></returns>
         private DistanceUnits SelectUnit(string prompt)
         {
             string choice = DisplayChoices(prompt);
             DistanceUnits unit = ExecuteChoice(choice);
             return unit;
         }
+
 
         private DistanceUnits ExecuteChoice(string choice)
         {
