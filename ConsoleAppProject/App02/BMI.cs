@@ -28,9 +28,6 @@ namespace ConsoleAppProject.App02
         private double kilos;
         private double BMIindex;
 
-        // public const int POUNDS_IN_STONES = 14;
-        // public const int INCHES_IN_FEET = 12;
-
         // Setup the constants - according to the data in the WIKI
         public const double UNDERWEIGHT = 18.5;
         public const double NORMAL_WEIGHT = 24.9;
