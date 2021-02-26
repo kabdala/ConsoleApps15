@@ -21,6 +21,9 @@ namespace ConsoleAppProject.App02
 
         // Setup the variables
         private double inches;
+        private double feet;
+        private double stones;
+        private double pounds;
         private double metres;
         private double kilos;
         private double BMIindex;
