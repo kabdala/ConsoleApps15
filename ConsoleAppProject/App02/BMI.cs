@@ -20,16 +20,16 @@ namespace ConsoleAppProject.App02
         // 5. Output the BAME message.
 
         // Setup the variables
-        private double inches;
-        private double feet;
-        private double stones;
-        private double pounds;
+        private int inches;
+        private int feet;
+        private int stones;
+        private int pounds;
         private double metres;
         private double kilos;
         private double BMIindex;
 
-        public const int POUNDS_IN_STONES = 14;
-        public const int INCHES_IN_FEET = 12;
+        // public const int POUNDS_IN_STONES = 14;
+        // public const int INCHES_IN_FEET = 12;
 
         // Setup the constants - according to the data in the WIKI
         public const double UNDERWEIGHT = 18.5;
@@ -62,7 +62,7 @@ namespace ConsoleAppProject.App02
             string input = Console.ReadLine();
         }
 
-        // Need to insert logic for menu
+        // TODO: Need to insert logic for menu here.
 
 
         // Ask the user for the metric measurements
@@ -104,7 +104,7 @@ namespace ConsoleAppProject.App02
         public void CalculateMetric()
         {
             // BMI = (weight in kg) / (height in metres)2
-            MetricBMI = WeightInKilos / (HeightInMetres * HeightInMetres);
+            // MetricBMI = WeightInKilos / (HeightInMetres * HeightInMetres);
 
         }
 
@@ -140,6 +140,8 @@ namespace ConsoleAppProject.App02
 
         
         /*
+         * This is a reminder of the syntax
+         * 
         public void GetInput ()
         {
             // How to get input on one line
