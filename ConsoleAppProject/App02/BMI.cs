@@ -119,12 +119,12 @@ namespace ConsoleAppProject.App02
 
         public void BMIMessage()
         {
-            Console.WriteLine("BMI Message");
+            Console.WriteLine("BMI Message goes here");
         }
 
         // Display any warning message based on BAME group
 
-        pubic void BameMessage()
+        public void BameMessage()
         {
             Console.WriteLine("Special message to BAME groups");
         }
@@ -132,7 +132,22 @@ namespace ConsoleAppProject.App02
         // Ask the user if they wish to run the app again (loop)
 
 
+        
+        /*
+        public void GetInput ()
+        {
+            // How to get input on one line
+            Console.Write("Make your choice: ");
+            string menuChoice = Console.ReadLine();
 
+            // Replacement in text
+            Console.WriteLine($"You entered {variableName} and {anotherVariable} so great!");
+            // or
+            Console.WriteLine("You entered {0} and {1} so great!",variableName, anotherVariable);
+
+
+        }
+        */
 
         // Reusable methods go here 
     }
