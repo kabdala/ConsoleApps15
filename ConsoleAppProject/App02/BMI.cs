@@ -62,6 +62,9 @@ namespace ConsoleAppProject.App02
             string input = Console.ReadLine();
         }
 
+        // Need to insert logic for menu
+
+
         // Ask the user for the metric measurements
 
         public void InputMetric()
