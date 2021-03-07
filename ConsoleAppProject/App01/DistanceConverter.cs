@@ -1,4 +1,5 @@
 ﻿using System;
+using ConsoleAppProject.Helpers;
 
 namespace ConsoleAppProject.App01
 {
@@ -43,7 +44,7 @@ namespace ConsoleAppProject.App01
         }
         public void ConvertDistance()
         {
-            OutputHeader();
+            ConsoleHelper.OutputHeading("Please enter:");
             fromUnit = SelectUnit(" Please select the 'from' distance unit: ");
             toUnit = SelectUnit(" Please select the 'to' distance unit: ");
 

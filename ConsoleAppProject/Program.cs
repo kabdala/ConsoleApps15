@@ -1,5 +1,10 @@
 ﻿using ConsoleAppProject.App01;
+using ConsoleAppProject.App02;
+using ConsoleAppProject.App03;
+using ConsoleAppProject.App04;
+using ConsoleAppProject.App05;
 using System;
+using ConsoleAppProject.Helpers;
 
 namespace ConsoleAppProject
 {
@@ -24,10 +29,17 @@ namespace ConsoleAppProject
 
             // Create a new instance of the DistanceConverter class
             // and call it converter
-            DistanceConverter converter = new DistanceConverter();
 
-            // Execute each method in turn
-            converter.ConvertDistance();
+
+            //DistanceConverter converter = new DistanceConverter();
+
+            //converter.ConvertDistance();
+
+            // Create a new instance of the BMI calculator class
+            // and call it bmi
+
+            BMI bmi = new BMI();
+            bmi.MainMenu();
 
             //TODO: Need to create a user menu and convert feet to miles and miles to metres
         }
