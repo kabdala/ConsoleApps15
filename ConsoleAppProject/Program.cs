@@ -30,10 +30,8 @@ namespace ConsoleAppProject
             // Create a new instance of the DistanceConverter class
             // and call it converter
 
-
-            //DistanceConverter converter = new DistanceConverter();
-
-            //converter.ConvertDistance();
+            // DistanceConverter converter = new DistanceConverter();
+            // converter.ConvertDistance();
 
             // Create a new instance of the BMI calculator class
             // and call it bmi

@@ -118,13 +118,14 @@ namespace ConsoleAppProject.Helpers
         /// inform the use which units are being converted
         /// Please change the authors name.
         /// </summary>
-        public static void OutputHeading(string heading)
+        public static void OutputHeading(string heading, double version)
         {
             Console.ForegroundColor = ConsoleColor.Green;
 
             Console.WriteLine("\n ---------------------------------");
             Console.WriteLine($"    {heading}          ");
-            Console.WriteLine("     by Phill Horrocks           ");
+            Console.WriteLine($"    Version {version}      ");
+            Console.WriteLine("    By Phill Horrocks");
             Console.WriteLine(" ---------------------------------" +
                 "\n");
 

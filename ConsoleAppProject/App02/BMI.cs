@@ -60,7 +60,7 @@ namespace ConsoleAppProject.App02
 
         public void MainMenu()
         {
-            ConsoleHelper.OutputHeading("BMI - Body Mass Index Calculator");
+            ConsoleHelper.OutputHeading("BMI - Body Mass Index Calculator", 0.8);
 
             Units unit = ChooseUnits();
 
