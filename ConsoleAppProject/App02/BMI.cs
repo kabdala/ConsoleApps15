@@ -104,7 +104,6 @@ namespace ConsoleAppProject.App02
         // Calculate the imperial BMI and store in BMIValue
         private void CalculateImperialBMI()
         {
-            // TODO: This seems a bit messy - maybe can be simplified
             double WeightInPounds = (Stones * 14) + Pounds;
             double HeightInInches = (Feet * 12 + Inches);
             BMIValue = ((WeightInPounds / HeightInInches) / HeightInInches) * 703;
