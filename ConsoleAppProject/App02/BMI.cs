@@ -33,7 +33,7 @@ namespace ConsoleAppProject.App02
 
         // Metric
         public double Metres;
-        //public double Centimetres; //unused righr now
+        //public double Centimetres; //unused right now
         public double Kilos;
 
         // Setup the constants - according to the data in the WIKI
@@ -57,7 +57,12 @@ namespace ConsoleAppProject.App02
         // Default set to NoWeight
         public BMIWeights WeightClass = BMIWeights.NoWeight;
 
-
+        /// <summary>
+        /// Display the heading, the menu and selection available to
+        /// the user. At the end of the condition, output the BMI,
+        /// display the BAME message then ask the user if they wish
+        /// to run the application again.
+        /// </summary>
         public void MainMenu()
         {
             ConsoleHelper.OutputHeading("BMI - Body Mass Index Calculator", 0.8);
@@ -83,8 +88,6 @@ namespace ConsoleAppProject.App02
             OutputBMI();
             BameMessage();
             RunAgain();
-            
-            // Maybe insert a question to ask the user if they wish to run this again?
         }
 
         // Get imperial units from the user
@@ -146,6 +149,7 @@ namespace ConsoleAppProject.App02
 
         // Check the BMI value, assign the appropriate term from the WeightClass
         // and output the message at the end.
+        // TODO: Find out why the StringBuilder does not work as expected
         public void OutputBMI()
         {
             StringBuilder message = new StringBuilder("\n");
@@ -175,10 +179,13 @@ namespace ConsoleAppProject.App02
                 WeightClass = BMIWeights.Obese3;
             }
 
-            Console.WriteLine($"Your BMI is: {BMIValue:0.00} and your current weight status is: {WeightClass}");
-            message.Append($"Your BMI is: {BMIValue:0.00} and your current weight status is: {WeightClass}");
+            Console.WriteLine($"\nYour BMI is: {BMIValue:0.00} and your current weight status is: {WeightClass}");
+            //message.Append($"Your BMI is: {BMIValue:0.00} and your current weight status is: {WeightClass}");
         }
 
+        /// <summary>
+        /// Output the BAME message at the end
+        /// </summary>
         public void BameMessage()
         {
             Console.WriteLine("\n###############");
@@ -191,6 +198,7 @@ namespace ConsoleAppProject.App02
             Console.WriteLine("any concerns.");
         }
 
+        // Ask the user if they wish to run through the app again
         public void RunAgain()
         {
             Console.WriteLine("Would you like to run this app again? (Y/N)");
