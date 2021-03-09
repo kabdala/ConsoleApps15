@@ -85,6 +85,7 @@ namespace ConsoleAppProject.App02
                 MainMenu();
             }
 
+            // Output the messages stored in the message string
             Console.WriteLine(OutputBMI());
             Console.WriteLine(HealthMessage());
             Console.WriteLine(BameMessage());
@@ -180,9 +181,7 @@ namespace ConsoleAppProject.App02
             }
 
             //Console.WriteLine($"\nYour BMI is: {BMIValue:0.00} and your current weight status is: {WeightClass}");
-
             message.Append($"Your BMI is: {BMIValue:0.00} and your current weight status is: {WeightClass}");
-
             return message.ToString();
         }
 
@@ -193,11 +192,9 @@ namespace ConsoleAppProject.App02
         public string HealthMessage()
         {
             StringBuilder message = new StringBuilder("\n");
-            message.Append("\n\n#################");
-            message.Append("\n### IMPORTANT ###");
-            message.Append("\n#################");
-            message.Append($"\nAdults with a BMI greater than {NORMAL_WEIGHT} are at increased risk");
-            message.Append($"\nAdults with a BMI greater than {OVERWEIGHT} are at high risk");
+            message.Append("### IMPORTANT ###");
+            message.Append($"Adults with a BMI greater than {NORMAL_WEIGHT} are at increased risk. ");
+            message.Append($"Adults with a BMI greater than {OVERWEIGHT} are at high risk");
 
             return message.ToString();
         }
@@ -208,14 +205,12 @@ namespace ConsoleAppProject.App02
         public string BameMessage()
         {
             StringBuilder message = new StringBuilder("\n");
-            message.Append("\n\n###############");
-            message.Append("\n### CAUTION ###");
-            message.Append("\n###############");
-            message.Append("\nPlease be aware that there are possible health factors to be");
-            message.Append("\ntaken into account if you belong to a black, Asian, or other");
-            message.Append("\nethnic minority group.");
-            message.Append("\nPlease consult a healthcare professional if you have");
-            message.Append("\nany concerns.");
+            message.Append("### CAUTION ### ");
+            message.Append("Please be aware that there are possible health factors to be");
+            message.Append("taken into account if you belong to a black, Asian, or other");
+            message.Append("ethnic minority group.");
+            message.Append("Please consult a healthcare professional if you have");
+            message.Append("any concerns.");
 
             return message.ToString();
         }
