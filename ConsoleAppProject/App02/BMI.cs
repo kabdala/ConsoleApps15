@@ -26,15 +26,15 @@ namespace ConsoleAppProject.App02
         // Setup the variables
 
         // Imperial
-        public double Inches;
-        public double Feet;
-        public double Stones;
-        public double Pounds;
+        public double Inches { get; set; }
+        public double Feet { get; set; }
+        public double Stones { get; set; }
+        public double Pounds { get; set; }
 
         // Metric
-        public double Metres;
+        public double Metres { get; set; }
         //public double Centimetres; //unused right now
-        public double Kilos;
+        public double Kilos { get; set; }
 
         // Setup the constants - according to the data in the WIKI
         public const double UNDERWEIGHT = 18.5;
@@ -52,7 +52,7 @@ namespace ConsoleAppProject.App02
         public Units Metric;
 
         // Set the BMI
-        public double BMIValue;
+        public double BMIValue { get; set; }
 
         // Default set to NoWeight
         public BMIWeights WeightClass = BMIWeights.NoWeight;
@@ -86,6 +86,7 @@ namespace ConsoleAppProject.App02
             }
 
             OutputBMI();
+            HealthMessage();
             BameMessage();
             RunAgain();
         }
@@ -179,7 +180,20 @@ namespace ConsoleAppProject.App02
             }
 
             Console.WriteLine($"\nYour BMI is: {BMIValue:0.00} and your current weight status is: {WeightClass}");
-            //message.Append($"Your BMI is: {BMIValue:0.00} and your current weight status is: {WeightClass}");
+            message.Append($"Your BMI is: {BMIValue:0.00} and your current weight status is: {WeightClass}");
+        }
+
+        /// <summary>
+        /// Output the standard health message informing the users
+        /// of upper and lower BMI value importance
+        /// </summary>
+        public void HealthMessage()
+        {
+            Console.WriteLine("\n#################");
+            Console.WriteLine("### IMPORTANT ###");
+            Console.WriteLine("#################");
+            Console.WriteLine($"Adults with a BMI greater than {NORMAL_WEIGHT} are at increased risk");
+            Console.WriteLine($"Adults with a BMI greater than {OVERWEIGHT} are at high risk");
         }
 
         /// <summary>
