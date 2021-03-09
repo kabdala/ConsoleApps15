@@ -10,7 +10,7 @@ namespace ConsoleAppProject.App02
     /// any message of warning to bame groups.
     /// </summary>
     /// <author>
-    /// Phill Horrocks version 0.2
+    /// Phill Horrocks version 0.8
     /// </author>
     public class BMI
     {
@@ -189,7 +189,7 @@ namespace ConsoleAppProject.App02
         /// </summary>
         public void HealthMessage()
         {
-            Console.WriteLine("\n#################");
+            Console.WriteLine("\n\n#################");
             Console.WriteLine("### IMPORTANT ###");
             Console.WriteLine("#################");
             Console.WriteLine($"Adults with a BMI greater than {NORMAL_WEIGHT} are at increased risk");
@@ -201,7 +201,7 @@ namespace ConsoleAppProject.App02
         /// </summary>
         public void BameMessage()
         {
-            Console.WriteLine("\n###############");
+            Console.WriteLine("\n\n###############");
             Console.WriteLine("### CAUTION ###");
             Console.WriteLine("###############");
             Console.WriteLine("Please be aware that there are possible health factors to be");
@@ -214,14 +214,13 @@ namespace ConsoleAppProject.App02
         // Ask the user if they wish to run through the app again
         public void RunAgain()
         {
+            Console.WriteLine("\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
             Console.WriteLine("Would you like to run this app again? (Y/N)");
             String choice = Console.ReadLine();
             if (choice == "y")
             {
                 MainMenu();
             }
-
         }
-
     }
 }
