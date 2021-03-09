@@ -85,9 +85,9 @@ namespace ConsoleAppProject.App02
                 MainMenu();
             }
 
-            OutputBMI();
-            HealthMessage();
-            BameMessage();
+            Console.WriteLine(OutputBMI());
+            Console.WriteLine(HealthMessage());
+            Console.WriteLine(BameMessage());
             RunAgain();
         }
 
@@ -103,7 +103,7 @@ namespace ConsoleAppProject.App02
         }
 
         // Calculate the imperial BMI and store in BMIValue
-        private void CalculateImperialBMI()
+        public void CalculateImperialBMI()
         {
             double WeightInPounds = (Stones * 14) + Pounds;
             double HeightInInches = (Feet * 12 + Inches);
@@ -111,7 +111,7 @@ namespace ConsoleAppProject.App02
         }
 
         // Get metric units from the user
-        private void InputMetricUnits()
+        public void InputMetricUnits()
         {
             //Min & max values there only to stop users' putting silly amounts in
             Kilos = ConsoleHelper.InputNumber("Please enter your weight in kilograms: ", 1, 200);
@@ -119,7 +119,7 @@ namespace ConsoleAppProject.App02
         }
 
         // Calculate the imperial BMI and store in BMIValue
-        private void CalculateMetricBMI()
+        public void CalculateMetricBMI()
         {
             BMIValue = Kilos / (Metres * Metres);
         }
@@ -150,7 +150,7 @@ namespace ConsoleAppProject.App02
         // Check the BMI value, assign the appropriate term from the WeightClass
         // and output the message at the end.
         // TODO: Find out why the StringBuilder does not work as expected
-        public void OutputBMI()
+        public string OutputBMI()
         {
             StringBuilder message = new StringBuilder("\n");
 
@@ -179,43 +179,53 @@ namespace ConsoleAppProject.App02
                 WeightClass = BMIWeights.Obese3;
             }
 
-            Console.WriteLine($"\nYour BMI is: {BMIValue:0.00} and your current weight status is: {WeightClass}");
+            //Console.WriteLine($"\nYour BMI is: {BMIValue:0.00} and your current weight status is: {WeightClass}");
+
             message.Append($"Your BMI is: {BMIValue:0.00} and your current weight status is: {WeightClass}");
+
+            return message.ToString();
         }
 
         /// <summary>
         /// Output the standard health message informing the users
         /// of upper and lower BMI value importance
         /// </summary>
-        public void HealthMessage()
+        public string HealthMessage()
         {
-            Console.WriteLine("\n\n#################");
-            Console.WriteLine("### IMPORTANT ###");
-            Console.WriteLine("#################");
-            Console.WriteLine($"Adults with a BMI greater than {NORMAL_WEIGHT} are at increased risk");
-            Console.WriteLine($"Adults with a BMI greater than {OVERWEIGHT} are at high risk");
+            StringBuilder message = new StringBuilder("\n");
+            message.Append("\n\n#################");
+            message.Append("\n### IMPORTANT ###");
+            message.Append("\n#################");
+            message.Append($"\nAdults with a BMI greater than {NORMAL_WEIGHT} are at increased risk");
+            message.Append($"\nAdults with a BMI greater than {OVERWEIGHT} are at high risk");
+
+            return message.ToString();
         }
 
         /// <summary>
         /// Output the BAME message at the end
         /// </summary>
-        public void BameMessage()
+        public string BameMessage()
         {
-            Console.WriteLine("\n\n###############");
-            Console.WriteLine("### CAUTION ###");
-            Console.WriteLine("###############");
-            Console.WriteLine("Please be aware that there are possible health factors to be");
-            Console.WriteLine("taken into account if you belong to a black, Asian, or other");
-            Console.WriteLine("ethnic minority group.");
-            Console.WriteLine("\nPlease consult a healthcare professional if you have");
-            Console.WriteLine("any concerns.");
+            StringBuilder message = new StringBuilder("\n");
+            message.Append("\n\n###############");
+            message.Append("\n### CAUTION ###");
+            message.Append("\n###############");
+            message.Append("\nPlease be aware that there are possible health factors to be");
+            message.Append("\ntaken into account if you belong to a black, Asian, or other");
+            message.Append("\nethnic minority group.");
+            message.Append("\nPlease consult a healthcare professional if you have");
+            message.Append("\nany concerns.");
+
+            return message.ToString();
         }
 
         // Ask the user if they wish to run through the app again
         public void RunAgain()
         {
-            Console.WriteLine("\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-            Console.WriteLine("Would you like to run this app again? (Y/N)");
+            Console.WriteLine("\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+            Console.WriteLine("-=- Would you like to run this app again? (Y/N) -=-");
+            Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
             String choice = Console.ReadLine();
             if (choice == "y")
             {

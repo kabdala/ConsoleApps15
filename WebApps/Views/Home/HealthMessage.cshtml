@@ -1,4 +1,4 @@
-﻿@Model double
+﻿@model double
 @using ConsoleAppProject.App02 
 @{
     ViewData["Title"] = "Health Message";
@@ -17,10 +17,13 @@
 <section>
     <h2>Your BMI index</h2>
     <p class="text-lead">
-        @bmi.OutputBMI;
+        @bmi.OutputBMI();
     </p>
     <p class="text-lead">
-        @bmi.BameMessage;
+        @bmi.HealthMessage();
+    </p>
+    <p class="text-lead">
+        @bmi.BameMessage();
     </p>
 </section>
 

@@ -33,12 +33,28 @@ namespace WebApps.Controllers
         [HttpPost]
         public IActionResult BMI(BMI bmi)
         {
-            return View();
+            if(bmi.Metres > 3)
+            {
+                bmi.CalculateMetricBMI();
+            }
+            else if (bmi.Feet > 4 && bmi.Stones >6)
+            {
+                bmi.CalculateImperialBMI();
+            }
+            else
+            {
+                ViewBag.Error = "Incorrect values entered";
+                return View();
+            }
+
+            double bmiIndex = bmi.BMIValue;
+
+            return RedirectToAction("HealthMessage", new { bmiIndex });
         }
 
-        public IActionResult HealthMessage()
+        public IActionResult HealthMessage(double bmiIndex)
         {
-            return View();
+            return View(bmiIndex);
         }
 
         public IActionResult StudentMarks()
