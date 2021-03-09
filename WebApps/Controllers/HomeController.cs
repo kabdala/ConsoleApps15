@@ -13,7 +13,6 @@ namespace WebApps.Controllers
     public class HomeController : Controller
     {
 
-
         public IActionResult Index()
         {
             return View();
@@ -33,7 +32,7 @@ namespace WebApps.Controllers
         [HttpPost]
         public IActionResult BMI(BMI bmi)
         {
-            if(bmi.Metres > 3)
+            if(bmi.Metres > 1)
             {
                 bmi.CalculateMetricBMI();
             }
@@ -43,12 +42,10 @@ namespace WebApps.Controllers
             }
             else
             {
-                ViewBag.Error = "Incorrect values entered";
+                ViewBag.Error = "Incorrect values entered.";
                 return View();
             }
-
             double bmiIndex = bmi.BMIValue;
-
             return RedirectToAction("HealthMessage", new { bmiIndex });
         }
 
