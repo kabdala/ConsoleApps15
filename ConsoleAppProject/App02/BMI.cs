@@ -26,6 +26,7 @@ namespace ConsoleAppProject.App02
         // Setup the variables
 
         // Imperial
+        // Allow these variables to be read/write from the webapp
         public double Inches { get; set; }
         public double Feet { get; set; }
         public double Stones { get; set; }

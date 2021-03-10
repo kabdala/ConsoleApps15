@@ -19,10 +19,10 @@ namespace ConsoleAppProject.App01
     public class DistanceConverter
     {
         // Setup the distance variables
-        private double fromDistance;
-        private double toDistance;
-        private DistanceUnits fromUnit;
-        private DistanceUnits toUnit;
+        public double FromDistance { get; set; }
+        public double ToDistance { get; set; }
+        public DistanceUnits FromUnit { get; set; }
+        public DistanceUnits ToUnit { get; set; }
 
         // Conversions
         public const int FEET_IN_MILES = 5280;
@@ -31,8 +31,8 @@ namespace ConsoleAppProject.App01
 
         public DistanceConverter()
         {
-            fromUnit = DistanceUnits.Miles;
-            toUnit = DistanceUnits.Feet;
+            FromUnit = DistanceUnits.Miles;
+            ToUnit = DistanceUnits.Feet;
         }
         /// <summary>
         /// Output the results of the conversion back
@@ -40,49 +40,49 @@ namespace ConsoleAppProject.App01
         /// </summary>
         public void OutputDistance()
         {
-            Console.WriteLine($"\n {fromDistance} {fromUnit} is {toDistance} {toUnit}");
+            Console.WriteLine($"\n {FromDistance} {FromUnit} is {ToDistance} {ToUnit}");
         }
         public void ConvertDistance()
         {
             ConsoleHelper.OutputHeading("Distance Converter", 0.6);
-            fromUnit = SelectUnit(" Please select the 'from' distance unit: ");
-            toUnit = SelectUnit(" Please select the 'to' distance unit: ");
+            FromUnit = SelectUnit(" Please select the 'from' distance unit: ");
+            ToUnit = SelectUnit(" Please select the 'to' distance unit: ");
 
-            Console.WriteLine($"\n Convert {fromUnit} to {toUnit}");
+            Console.WriteLine($"\n Convert {FromUnit} to {ToUnit}");
 
-            fromDistance = InputDistance($" Please enter the number of {fromUnit}: ");
-            CalulateDistance();
+            FromDistance = InputDistance($" Please enter the number of {FromUnit}: ");
+            CalculateDistance();
             OutputDistance();
         }
         /// <summary>
         /// Calculate the conversion, referencing the enum
         /// to get the units
         /// </summary>
-        private void CalulateDistance()
+        public void CalculateDistance()
         {
-            if (fromUnit == DistanceUnits.Miles && toUnit == DistanceUnits.Feet)
+            if (FromUnit == DistanceUnits.Miles && ToUnit == DistanceUnits.Feet)
             {
-                toDistance = fromDistance * FEET_IN_MILES;
+                ToDistance = FromDistance * FEET_IN_MILES;
             }
-            else if (fromUnit == DistanceUnits.Feet && toUnit == DistanceUnits.Miles)
+            else if (FromUnit == DistanceUnits.Feet && ToUnit == DistanceUnits.Miles)
             {
-                toDistance = fromDistance / FEET_IN_MILES;
+                ToDistance = FromDistance / FEET_IN_MILES;
             }
-            else if (fromUnit == DistanceUnits.Feet && toUnit == DistanceUnits.Metres)
+            else if (FromUnit == DistanceUnits.Feet && ToUnit == DistanceUnits.Metres)
             {
-                toDistance = fromDistance / FEET_IN_METRES;
+                ToDistance = FromDistance / FEET_IN_METRES;
             }
-            else if (fromUnit == DistanceUnits.Metres && toUnit == DistanceUnits.Feet)
+            else if (FromUnit == DistanceUnits.Metres && ToUnit == DistanceUnits.Feet)
             {
-                toDistance = fromDistance * FEET_IN_METRES;
+                ToDistance = FromDistance * FEET_IN_METRES;
             }
-            else if (fromUnit == DistanceUnits.Miles && toUnit == DistanceUnits.Metres)
+            else if (FromUnit == DistanceUnits.Miles && ToUnit == DistanceUnits.Metres)
             {
-                toDistance = fromDistance * METRES_IN_MILES;
+                ToDistance = FromDistance * METRES_IN_MILES;
             }
-            else if (fromUnit == DistanceUnits.Metres && toUnit == DistanceUnits.Miles)
+            else if (FromUnit == DistanceUnits.Metres && ToUnit == DistanceUnits.Miles)
             {
-                toDistance = fromDistance / METRES_IN_MILES;
+                ToDistance = FromDistance / METRES_IN_MILES;
             }
         }
 
