@@ -71,15 +71,13 @@ namespace ConsoleAppProject.App03
         /// <returns></returns>
         public Grades ConvertToGrade(int mark)
         {
-            //throw new NotImplementedException();
-
             if (mark >= NoGrade && mark < LowGradeD)
             {
                 return Grades.F;
             }
             else
             {
-                return Grades.D;
+                return Grades.B;
             }
         }
 
@@ -89,7 +87,12 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void CalculateStats()
         {
-            throw new NotImplementedException();
+            double total = 0;
+            foreach (int mark in Marks)
+            {
+                total = total + mark;
+            }
+            Mean = total / Marks.Length;
         }
     }
 }
