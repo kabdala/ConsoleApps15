@@ -12,11 +12,16 @@ namespace ConsoleAppProject.App03
     /// </summary>
     public class StudentGrades
     {
-        // 1. Enter marks for 10 students
-        // 2. Output the marks for the students
-        // 3. Display the mean marks & percentages etc
-        // 4. 
+        // Setup the application constants
 
+        public const int NoGrade = 0;
+        public const int LowGradeD = 40;
+        public const int LowGradeC = 50;
+        public const int LowGradeB = 60;
+        public const int LowGradeA = 70;
+        public const int HighGrade = 100;
+
+        // Setup the main properties
         public string[] Students { get; set; }
         public int[] Marks { get; set; }
         public int[] GradeProfile { get; set; }
@@ -66,7 +71,16 @@ namespace ConsoleAppProject.App03
         /// <returns></returns>
         public Grades ConvertToGrade(int mark)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+
+            if (mark >= NoGrade && mark < LowGradeD)
+            {
+                return Grades.F;
+            }
+            else
+            {
+                return Grades.D;
+            }
         }
 
         /// <summary>
@@ -77,6 +91,5 @@ namespace ConsoleAppProject.App03
         {
             throw new NotImplementedException();
         }
-
     }
 }
