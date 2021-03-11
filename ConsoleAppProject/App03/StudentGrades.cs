@@ -9,6 +9,13 @@ namespace ConsoleAppProject.App03
     /// This is a small app to store, calculate and display
     /// student grades. It uses an SQL database to hold the
     /// data
+    /// 
+    /// Outline of program:
+    /// 1. Input marks
+    /// 2. Output marks
+    /// 3. Output stats
+    /// 4. Output grade profile
+    /// 5. Quit
     /// </summary>
     public class StudentGrades
     {
@@ -151,7 +158,7 @@ namespace ConsoleAppProject.App03
 
         public void OutputGradeProfile()
         {
-            Grades grade = Grades.X;
+            Grades grade = Grades.F;
             Console.WriteLine();
 
             foreach (int count in GradeProfile)
