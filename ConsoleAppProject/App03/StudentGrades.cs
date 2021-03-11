@@ -75,9 +75,21 @@ namespace ConsoleAppProject.App03
             {
                 return Grades.F;
             }
-            else
+            else if (mark >= LowGradeD && mark < LowGradeC)
+            {
+                return Grades.D;
+            }
+            else if (mark >= LowGradeC && mark < LowGradeB)
+            {
+                return Grades.C;
+            }
+            else if (mark >= LowGradeB && mark < LowGradeA)
             {
                 return Grades.B;
+            }
+            else
+            {
+                return Grades.A;
             }
         }
 
@@ -94,5 +106,64 @@ namespace ConsoleAppProject.App03
             }
             Mean = total / Marks.Length;
         }
+
+        public void CalculateMin()
+        {
+            Min = Marks[0];
+            Max = Marks[0];
+
+            double total = 0;
+            foreach (int mark in Marks)
+            {
+                if (mark > Max) Max = mark;
+                if (mark < Min) Min = mark;
+                Mean = total / Marks.Length;
+            }
+        }
+
+        public void CalculateMax()
+        {
+            Min = Marks[0];
+            Max = Marks[9];
+
+            double total = 0;
+            foreach (int mark in Marks)
+            {
+                if (mark > Max) Max = mark;
+                if (mark < Min) Min = mark;
+                Mean = total / Marks.Length;
+            }
+        }
+
+        public void CalculateGradeProfile()
+        {
+            for(int i = 0; i < GradeProfile.Length; i++)
+            {
+                GradeProfile[i] = 0;
+            }
+
+            foreach (int mark in Marks)
+            {
+                Grades grade = ConvertToGrade(mark);
+                GradeProfile[(int)grade]++;
+            }
+        }
+
+        public void OutputGradeProfile()
+        {
+            Grades grade = Grades.X;
+            Console.WriteLine();
+
+            foreach (int count in GradeProfile)
+            {
+                int percent = count * 100 / Marks.Length;
+                Console.WriteLine($"Grade {grade} {percent}% Count {count}");
+                grade++;
+            }
+
+            Console.WriteLine();
+
+        }
+
     }
 }
