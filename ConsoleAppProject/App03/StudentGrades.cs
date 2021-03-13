@@ -46,7 +46,7 @@ namespace ConsoleAppProject.App03
             Students = new string[]
             {
                 "Rod", "Jane", "Freddie",
-                "Ivor", "Keyop", "Jason",
+                "Zoltar", "Keyop", "Jason",
                 "Tiny", "Princess", "Mark",
                 "Zark"
             };
@@ -219,6 +219,23 @@ namespace ConsoleAppProject.App03
                 Console.WriteLine("Error. Please select a choice (1-5");
                 SelectChoice(); // Loop back to choose again
             }
+        }
+
+        /// <summary>
+        /// Ask the user for the marks for 10 students
+        /// </summary>
+        public void EnterMarks()
+        {
+            Console.WriteLine("Please enter marks: ");
+            // Create a loop to enter the 10 students marks
+            for(int i = 0; i <= Students.Length; i++)
+            {
+                // Thanks StackOverflow for the Cast reminder 😁
+                Marks[i] = (int)ConsoleHelper.InputNumber($"\nPlease enter the mark for {Students[i]}: ", 0, 100);
+            }
+            // Now, go back to the main menu
+            SelectChoice();
+
         }
 
     }
