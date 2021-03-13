@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ConsoleAppProject.Helpers;
 
 namespace ConsoleAppProject.App03
 {
@@ -55,6 +56,17 @@ namespace ConsoleAppProject.App03
         }
 
         /// <summary>
+        /// Output a heading on the console app version
+        /// using the consolehelper
+        /// </summary>
+        public void OutputHeading()
+        {
+            ConsoleHelper.OutputHeading("Simple Student Mark App",0.1);
+            // TODO: Make a SelectChoice menu
+        }
+
+
+        /// <summary>
         /// Get the user to enter marks from 0 to 100 for
         /// each of the 10 students
         /// </summary>
@@ -94,10 +106,11 @@ namespace ConsoleAppProject.App03
             {
                 return Grades.B;
             }
-            else
+            else if (mark >= LowGradeA && mark <= HighGrade)
             {
                 return Grades.A;
             }
+            return Grades.N;
         }
 
         /// <summary>
@@ -154,11 +167,14 @@ namespace ConsoleAppProject.App03
                 Grades grade = ConvertToGrade(mark);
                 GradeProfile[(int)grade]++;
             }
+
+            //OutputGradeProfile();
         }
 
         public void OutputGradeProfile()
         {
-            Grades grade = Grades.F;
+            // Start with the default grade of N (NA)
+            Grades grade = Grades.N;
             Console.WriteLine();
 
             foreach (int count in GradeProfile)
@@ -173,4 +189,5 @@ namespace ConsoleAppProject.App03
         }
 
     }
+
 }
