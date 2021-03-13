@@ -168,7 +168,7 @@ namespace ConsoleAppProject.App03
                 GradeProfile[(int)grade]++;
             }
 
-            //OutputGradeProfile();
+            OutputGradeProfile();
         }
 
         public void OutputGradeProfile()
@@ -185,7 +185,40 @@ namespace ConsoleAppProject.App03
             }
 
             Console.WriteLine();
+        }
 
+        public void SelectChoice()
+        {
+            Console.WriteLine("\n*** Please select one of the following options ***\n");
+            string[] choices = { "Enter Marks", "Display Marks",
+                                 "Display Stats", "Display Grade Profile", "Quit" };
+            int choice = ConsoleHelper.SelectChoice(choices);
+
+            if (choice == 1)
+            {
+                // Enter Marks
+            }
+            else if (choice == 2)
+            {
+                // Display Marks
+            }
+            else if (choice == 3)
+            {
+                // Display Stats
+            }
+            else if (choice == 4)
+            {
+                // Dispplay Grade Profile
+            }
+            else if (choice == 5)
+            {
+                // Quit
+            }
+            else
+            {
+                Console.WriteLine("Error. Please select a choice (1-5");
+                SelectChoice(); // Loop back to choose again
+            }
         }
 
     }
