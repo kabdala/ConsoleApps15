@@ -62,7 +62,7 @@ namespace ConsoleAppProject.App03
         public void OutputHeading()
         {
             ConsoleHelper.OutputHeading("Simple Student Mark App",0.1);
-            // TODO: Make a SelectChoice menu
+            SelectChoice();
         }
 
 
@@ -167,7 +167,6 @@ namespace ConsoleAppProject.App03
                 Grades grade = ConvertToGrade(mark);
                 GradeProfile[(int)grade]++;
             }
-
             OutputGradeProfile();
         }
 
@@ -180,7 +179,7 @@ namespace ConsoleAppProject.App03
             foreach (int count in GradeProfile)
             {
                 int percent = count * 100 / Marks.Length;
-                Console.WriteLine($"Grade {grade} {percent}% Count {count}");
+                Console.WriteLine($"\nGrade {grade}\t {percent}% \tCount \t{count}");
                 grade++;
             }
 
@@ -196,7 +195,7 @@ namespace ConsoleAppProject.App03
 
             if (choice == 1)
             {
-                // Enter Marks
+                EnterMarks();
             }
             else if (choice == 2)
             {
@@ -228,10 +227,12 @@ namespace ConsoleAppProject.App03
         {
             Console.WriteLine("Please enter marks: ");
             // Create a loop to enter the 10 students marks
-            for(int i = 0; i <= Students.Length; i++)
+            for(int i = 0; i < Students.Length; i++)
             {
-                // Thanks StackOverflow for the Cast reminder 😁
-                Marks[i] = (int)ConsoleHelper.InputNumber($"\nPlease enter the mark for {Students[i]}: ", 0, 100);
+                // Thanks StackOverflow for the 'Cast' reminder 😁
+                // Limit the input between min & max marks (0 to 100)
+                Marks[i] = (int)ConsoleHelper.InputNumber
+                    ($"\nPlease enter the mark for student #"+(i+1)+$" {Students[i]}: ", 0, 100);
             }
             // Now, go back to the main menu
             SelectChoice();
