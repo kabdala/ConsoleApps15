@@ -10,6 +10,7 @@ namespace ConsoleAppProject.App04
     /// </summary>
     /// <author>
     /// Michael Kölling and David J. Barnes
+    /// Edited by Phill Horrocks
     /// version 0.1
     /// </author>
     public class MessagePost

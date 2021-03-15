@@ -235,8 +235,7 @@ namespace ConsoleAppProject.App03
                     ($"\nPlease enter the mark for student #"+(i+1)+$" {Students[i]}: ", 0, 100);
             }
             // Now, go back to the main menu
-            SelectChoice();
-
+            SelectChoice(); // Loop back to choose again
         }
 
     }
