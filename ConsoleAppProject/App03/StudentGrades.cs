@@ -70,7 +70,10 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void OutputMarks()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            Console.WriteLine("\nStudent Grade Information");
+            // foreach loop to go through the list of students and grades
+
         }
 
         /// <summary>
@@ -109,12 +112,16 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void CalculateStats()
         {
+            Min = Marks[0];
+            Max = Marks[0];
+
             double total = 0;
             foreach (int mark in Marks)
             {
+                if (mark > Max) Max = mark;
+                if (mark < Min) Min = mark;
                 total = total + mark;
             }
-            Mean = total / Marks.Length;
         }
 
         public void CalculateMin()
@@ -172,7 +179,6 @@ namespace ConsoleAppProject.App03
                 Console.WriteLine($"\nGrade {grade}\t {percent}% \tCount \t{count}");
                 grade++;
             }
-
             Console.WriteLine();
             SelectChoice();
 
@@ -211,7 +217,9 @@ namespace ConsoleAppProject.App03
             }
             else if (choice == 5)
             {
-                // Quit
+                // Thanks to https://dotnetcodr.com/2015/10/02/how-to-terminate-a-net-console-application-with-an-exit-code/
+                // for the 'how to exit a console app'
+                Environment.Exit(-1);
             }
             else
             {
