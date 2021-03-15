@@ -186,6 +186,14 @@ namespace ConsoleAppProject.App03
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// Prompt the user to enter a choice from the main menu
+        /// 1. Enter Marks
+        /// 2. Display Marks
+        /// 3. Display Stats
+        /// 4. Display Grade Profile
+        /// 5. Quit the program
+        /// </summary>
         public void SelectChoice()
         {
             Console.WriteLine("\n*** Please select one of the following options ***\n");
@@ -196,10 +204,12 @@ namespace ConsoleAppProject.App03
             if (choice == 1)
             {
                 EnterMarks();
+                SelectChoice();
             }
             else if (choice == 2)
             {
-                // Display Marks
+                OutputMarks();
+                SelectChoice();
             }
             else if (choice == 3)
             {
@@ -207,7 +217,8 @@ namespace ConsoleAppProject.App03
             }
             else if (choice == 4)
             {
-                // Dispplay Grade Profile
+                OutputGradeProfile();
+                SelectChoice();
             }
             else if (choice == 5)
             {
