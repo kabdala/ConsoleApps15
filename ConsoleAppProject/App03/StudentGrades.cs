@@ -61,18 +61,8 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void OutputHeading()
         {
-            ConsoleHelper.OutputHeading("Simple Student Mark App",0.1);
+            ConsoleHelper.OutputHeading("Simple Student Mark App",0.3);
             SelectChoice();
-        }
-
-
-        /// <summary>
-        /// Get the user to enter marks from 0 to 100 for
-        /// each of the 10 students
-        /// </summary>
-        public void InputMarks()
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -184,6 +174,8 @@ namespace ConsoleAppProject.App03
             }
 
             Console.WriteLine();
+            SelectChoice();
+
         }
 
         /// <summary>
@@ -204,12 +196,10 @@ namespace ConsoleAppProject.App03
             if (choice == 1)
             {
                 EnterMarks();
-                SelectChoice();
             }
             else if (choice == 2)
             {
                 OutputMarks();
-                SelectChoice();
             }
             else if (choice == 3)
             {
@@ -218,7 +208,6 @@ namespace ConsoleAppProject.App03
             else if (choice == 4)
             {
                 OutputGradeProfile();
-                SelectChoice();
             }
             else if (choice == 5)
             {
