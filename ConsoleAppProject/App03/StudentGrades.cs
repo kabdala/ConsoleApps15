@@ -138,20 +138,6 @@ namespace ConsoleAppProject.App03
             }
         }
 
-        public void CalculateMax()
-        {
-            Min = Marks[0];
-            Max = Marks[9];
-
-            double total = 0;
-            foreach (int mark in Marks)
-            {
-                if (mark > Max) Max = mark;
-                if (mark < Min) Min = mark;
-                Mean = total / Marks.Length;
-            }
-        }
-
         public void CalculateGradeProfile()
         {
             for(int i = 0; i < GradeProfile.Length; i++)
