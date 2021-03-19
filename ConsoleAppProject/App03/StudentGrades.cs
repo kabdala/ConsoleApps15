@@ -122,8 +122,10 @@ namespace ConsoleAppProject.App03
                 if (mark < Min) Min = mark;
                 total = total + mark;
             }
+            Mean = total / Marks.Length;
         }
 
+        // Testing
         public void CalculateMin()
         {
             Min = Marks[0];
@@ -138,6 +140,24 @@ namespace ConsoleAppProject.App03
             }
         }
 
+        // Testing
+        public void CalculateMax()
+        {
+            Min = Marks[0];
+            Max = Marks[0];
+
+            double total = 0;
+            foreach (int mark in Marks)
+            {
+                if (mark > Max) Max = mark;
+                if (mark < Min) Min = mark;
+                Mean = total / Marks.Length;
+            }
+        }
+
+        /// <summary>
+        /// Calculate the grade profile
+        /// </summary>
         public void CalculateGradeProfile()
         {
             for(int i = 0; i < GradeProfile.Length; i++)
@@ -162,6 +182,8 @@ namespace ConsoleAppProject.App03
             foreach (int count in GradeProfile)
             {
                 int percent = count * 100 / Marks.Length;
+
+                //Trying with \t tabstops to make output easier to read
                 Console.WriteLine($"\nGrade {grade}\t {percent}% \tCount \t{count}");
                 grade++;
             }
