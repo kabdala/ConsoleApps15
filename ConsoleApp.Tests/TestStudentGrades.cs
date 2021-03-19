@@ -8,8 +8,8 @@ namespace ConsoleApp.Tests
         private readonly StudentGrades converter = new StudentGrades();
         private readonly StudentGrades studentGrades = new StudentGrades();
 
-        private int[] testMarks;
-        private int[] statsMarks;
+        private readonly int[] testMarks;
+        private readonly int[] statsMarks;
 
         public TestStudentGrades()
         {
@@ -17,6 +17,8 @@ namespace ConsoleApp.Tests
             {
                 10, 20, 30, 40, 50, 60, 70, 80, 90, 100
             };
+           
+            // Remove
             statsMarks = new int[]
             {
                 10, 20, 30, 40, 50, 60, 70, 80, 90, 100
@@ -89,6 +91,7 @@ namespace ConsoleApp.Tests
 
             // 2. Act
             converter.CalculateGradeProfile();
+
             bool expectedProfile = studentGrades.GradeProfile[0] == 0 &&
                     studentGrades.GradeProfile[1] == 3 &&
                     studentGrades.GradeProfile[2] == 1 &&

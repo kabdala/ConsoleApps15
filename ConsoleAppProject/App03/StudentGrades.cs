@@ -103,6 +103,7 @@ namespace ConsoleAppProject.App03
             {
                 return Grades.A;
             }
+            // return Grades.N;
             return Grades.N;
         }
 
@@ -156,7 +157,8 @@ namespace ConsoleAppProject.App03
         }
 
         /// <summary>
-        /// Calculate the grade profile
+        /// Calculate the grade profile. Loop through the marks and pass
+        /// into the ConvertToGrade method to provide the grade
         /// </summary>
         public void CalculateGradeProfile()
         {
