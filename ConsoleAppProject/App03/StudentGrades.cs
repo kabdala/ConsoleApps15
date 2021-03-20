@@ -8,7 +8,7 @@ namespace ConsoleAppProject.App03
 
     /// <summary>
     /// This is a small app to store, calculate and display
-    /// student grades. It uses an SQL database to hold the
+    /// student grades. It should use an SQL database to hold the
     /// data
     /// 
     /// Outline of program:
@@ -61,7 +61,7 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void OutputHeading()
         {
-            ConsoleHelper.OutputHeading("Simple Student Mark App",0.3);
+            ConsoleHelper.OutputHeading("Simple Student Mark App",0.4);
             SelectChoice();
         }
 
@@ -157,8 +157,8 @@ namespace ConsoleAppProject.App03
         }
 
         /// <summary>
-        /// Calculate the grade profile. Loop through the marks and pass
-        /// into the ConvertToGrade method to provide the grade
+        /// Calculate the grade profile. Loop through the marks and 
+        /// assign
         /// </summary>
         public void CalculateGradeProfile()
         {
@@ -172,26 +172,31 @@ namespace ConsoleAppProject.App03
                 Grades grade = ConvertToGrade(mark);
                 GradeProfile[(int)grade]++;
             }
-            OutputGradeProfile();
         }
 
+        /// <summary>
+        /// Display the grade profile for all 10 students
+        /// then go back to the main menu. First we need to get the
+        /// grade profile then display the results
+        /// </summary>
         public void OutputGradeProfile()
         {
+            CalculateGradeProfile();
             // Start with the default grade of N (NA)
+            // TODO: Do not need to display the 'N' grade in the output
+            Console.WriteLine("\n## STUDENT GRADE PROFILE ##\n");
             Grades grade = Grades.N;
-            Console.WriteLine();
-
             foreach (int count in GradeProfile)
             {
                 int percent = count * 100 / Marks.Length;
 
-                //Trying with \t tabstops to make output easier to read
-                Console.WriteLine($"\nGrade {grade}\t {percent}% \tCount \t{count}");
+                // Trying \t tabstops to make output easier to read
+                Console.WriteLine($"Grade {grade}\t {percent}% \tCount \t{count}");
                 grade++;
             }
-            Console.WriteLine();
+            Console.WriteLine("\n--- END ---\n");
             SelectChoice();
-
+            
         }
 
         /// <summary>
@@ -201,9 +206,11 @@ namespace ConsoleAppProject.App03
         /// 3. Display Stats
         /// 4. Display Grade Profile
         /// 5. Quit the program
+        /// NOTE: Switch maybe would be more elegant here?
         /// </summary>
         public void SelectChoice()
         {
+            Console.WriteLine("### MAIN MENU ###");
             Console.WriteLine("\n*** Please select one of the following options ***\n");
             string[] choices = { "Enter Marks", "Display Marks",
                                  "Display Stats", "Display Grade Profile", "Quit" };
@@ -233,13 +240,14 @@ namespace ConsoleAppProject.App03
             }
             else
             {
-                Console.WriteLine("Error. Please select a choice (1-5");
+                Console.WriteLine("* Error. Please select a choice (1-5 *");
                 SelectChoice(); // Loop back to choose again
             }
         }
 
         /// <summary>
-        /// Ask the user for the marks for 10 students
+        /// Ask the user for the marks for 10 students plus
+        /// display the student number in the input string
         /// </summary>
         public void EnterMarks()
         {
@@ -253,7 +261,7 @@ namespace ConsoleAppProject.App03
                     ($"\nPlease enter the mark for student #"+(i+1)+$" {Students[i]}: ", 0, 100);
             }
             // Now, go back to the main menu
-            SelectChoice(); // Loop back to choose again
+            SelectChoice();
         }
 
     }
