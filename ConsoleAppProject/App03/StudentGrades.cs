@@ -40,7 +40,8 @@ namespace ConsoleAppProject.App03
         // Main constructor
 
         // Populate the Students string with some
-        // sample student names
+        // sample student names (extra points for knowing
+        // the last 7 names on this list 😁
         public StudentGrades()
         {
             Students = new string[]
@@ -61,7 +62,7 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void OutputHeading()
         {
-            ConsoleHelper.OutputHeading("Simple Student Mark App",0.4);
+            ConsoleHelper.OutputHeading("Simple Student Mark App",0.5);
             SelectChoice();
         }
 
@@ -70,9 +71,17 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void OutputMarks()
         {
+            //TODO: Tidy up output
             //throw new NotImplementedException();
             Console.WriteLine("\nStudent Grade Information");
             // foreach loop to go through the list of students and grades
+            // Call the ConvertToGrades to convert the marks to grade values
+
+            for (int i = 0; i < Students.Length; i++)
+            {
+                Console.WriteLine($"{Students[i]}  {Marks[i]}  {ConvertToGrade(Marks[i])}");
+            }
+            SelectChoice();
 
         }
 
@@ -124,6 +133,22 @@ namespace ConsoleAppProject.App03
                 total = total + mark;
             }
             Mean = total / Marks.Length;
+        }
+
+        /// <summary>
+        /// Display the student mark statistics: Mean, minumum and maximum marks
+        /// Then when done, return to the main menu
+        /// </summary>
+        public void OutputStats()
+        {
+            CalculateStats();
+            Console.WriteLine("\n### Student Grade Statistics ###");
+            Console.WriteLine("");
+            Console.WriteLine($"The minimum mark achieved by a student: {Min}");
+            Console.WriteLine($"The maximum mark achieved by a student: {Max}");
+            Console.WriteLine($"The mean marks achieved across all students: {Mean}");
+
+            SelectChoice();
         }
 
         // Testing
@@ -226,7 +251,7 @@ namespace ConsoleAppProject.App03
             }
             else if (choice == 3)
             {
-                // Display Stats
+                OutputStats();
             }
             else if (choice == 4)
             {
