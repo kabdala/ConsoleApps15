@@ -2,7 +2,7 @@
 using ConsoleAppProject.App02;
 using ConsoleAppProject.App03;
 using ConsoleAppProject.App04;
-using ConsoleAppProject.App05;
+//using ConsoleAppProject.App05;
 using System;
 using ConsoleAppProject.Helpers;
 
@@ -11,38 +11,46 @@ namespace ConsoleAppProject
     /// <summary>
     /// The main method in this class is called first
     /// when the application is started.  It will be used
-    /// to start Apps 01 to 05 for CO453 CW1
+    /// to start Apps 01 to 04 for CO453 CW1
     /// 
     /// This Project has been modified by:
-    /// Phill Horrocks 22/01/21
+    /// Phill Horrocks 25/03/21
     /// </summary>
     public static class Program
     {
         public static void Main(string[] args)
         {
-
             Console.ForegroundColor = ConsoleColor.Blue;
-            
-            Console.WriteLine("\n\nBNU CO453 Applications Programming 2020-2021!");
-            Console.WriteLine("------------------------------------------------");
-            //Console.Beep();
 
-            // Create a new instance of the DistanceConverter class
-            // and call it converter
+            ConsoleHelper.OutputHeading("CO453 C# Programming - MAIN MENU", 0.2);
+            string[] choices = {
+                "APP01: Distance Converter",
+                "APP02: BMI Calculator",
+                "APP03: Student Grades System",
+                "APP04: Social Network"
+            };
+            int choice = ConsoleHelper.SelectChoice(choices);
 
-            // DistanceConverter converter = new DistanceConverter();
-            // converter.ConvertDistance();
+            if (choice == 1)
+            {
+                DistanceConverter converter = new DistanceConverter();
+                converter.ConvertDistance();
+            }
+            if (choice == 2)
+            {
+                BMI bmi = new BMI();
+                bmi.MainMenu();
+            }
+            if (choice == 3)
+            {
+                StudentGrades studentGrades = new StudentGrades();
+                studentGrades.OutputHeading();
+            }
+            else
+            {
+                Console.WriteLine("Please make your choice");
+            }
 
-            // Create a new instance of the BMI calculator class
-            // and call it bmi
-
-            // BMI bmi = new BMI();
-            // bmi.MainMenu();
-
-            StudentGrades studentGrades = new StudentGrades();
-            studentGrades.OutputHeading();
-
-            //TODO: Need to create a user menu and convert feet to miles and miles to metres
         }
     }
 }
