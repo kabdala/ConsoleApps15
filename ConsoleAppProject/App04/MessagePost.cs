@@ -33,18 +33,21 @@ namespace ConsoleAppProject.App04
         public MessagePost(String author, String text): base(author)
         {
             Message = text;
-
-
-
         }
 
-        
+        public override void Display()
+        {
+            Console.WriteLine($"\tMessage: {Message}");
+            base.Display();
+        }
 
 
 
 
- 
 
- 
+
+
+
+
     }
 }

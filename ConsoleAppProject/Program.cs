@@ -46,6 +46,11 @@ namespace ConsoleAppProject
                 StudentGrades studentGrades = new StudentGrades();
                 studentGrades.OutputHeading();
             }
+            if (choice == 4)
+            {
+                NetworkApp networkApp = new NetworkApp();
+                networkApp.DisplayMenu();
+            }
             else
             {
                 Console.WriteLine("Please make your choice");

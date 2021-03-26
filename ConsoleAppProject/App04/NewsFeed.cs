@@ -17,9 +17,12 @@ namespace ConsoleAppProject.App04
     ///<author>
     ///  Michael Kölling and David J. Barnes
     ///  version 0.1
+    ///  Edited by Phill Horrocks
+    ///  Date: 26/03/21
     ///</author> 
     public class NewsFeed
     {
+        public const string Author = "Phill"; // Testing by setting constant variable
         private readonly List<Post> posts;
 
 
@@ -29,7 +32,12 @@ namespace ConsoleAppProject.App04
         public NewsFeed()
         {
             posts = new List<Post>();
+            // Testing
+            MessagePost post = new MessagePost(Author, "Hello world! You are awesome");
+            AddMessagePost(post);
 
+            PhotoPost photoPost = new PhotoPost(Author, "pic1.jpg", "Me and my dogs!");
+            AddPhotoPost(photoPost);
         }
 
 
