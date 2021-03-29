@@ -87,17 +87,17 @@ namespace ConsoleApp.Tests
         public void TestGradeProfile()
         {
             // 1. Arrange
-            converter.Marks = testMarks;
+            studentGrades.Marks = testMarks;
 
             // 2. Act
-            converter.CalculateGradeProfile();
+            studentGrades.CalculateGradeProfile();
 
-            bool expectedProfile = studentGrades.GradeProfile[0] == 0 &&
-                    studentGrades.GradeProfile[1] == 3 &&
-                    studentGrades.GradeProfile[2] == 1 &&
-                    studentGrades.GradeProfile[3] == 1 &&
-                    studentGrades.GradeProfile[4] == 1 &&
-                    studentGrades.GradeProfile[5] == 4;
+            bool expectedProfile =  studentGrades.GradeProfile[0] == 0 &&
+                                    studentGrades.GradeProfile[1] == 3 &&
+                                    studentGrades.GradeProfile[2] == 1 &&
+                                    studentGrades.GradeProfile[3] == 1 &&
+                                    studentGrades.GradeProfile[4] == 1 &&
+                                    studentGrades.GradeProfile[5] == 4;
             // 3. Assert
             Assert.IsTrue(expectedProfile);
         }
