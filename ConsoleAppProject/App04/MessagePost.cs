@@ -30,7 +30,7 @@ namespace ConsoleAppProject.App04
         /// <param name="text">
         /// The text of this post.
         /// </param>
-        public MessagePost(String author, String text): base(author)
+        public MessagePost(String author, String text, int id): base(author, id)
         {
             Message = text;
         }
@@ -40,14 +40,6 @@ namespace ConsoleAppProject.App04
             Console.WriteLine($"\tMessage: {Message}");
             base.Display();
         }
-
-
-
-
-
-
-
-
 
     }
 }

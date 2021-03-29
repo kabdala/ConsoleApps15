@@ -2,7 +2,6 @@
 using ConsoleAppProject.App02;
 using ConsoleAppProject.App03;
 using ConsoleAppProject.App04;
-//using ConsoleAppProject.App05;
 using System;
 using ConsoleAppProject.Helpers;
 

@@ -10,17 +10,22 @@ namespace ConsoleAppProject.App04
 
         private readonly List<String> comments;
 
-        // username of the post's author
+        public int postID { get; }
+
+        public static int instances = 0;
+
         public String Username { get; }
 
         public DateTime Timestamp { get; }
 
-        public Post(string author)
+        public Post(string author, int id)
         {
+            instances++;
             this.Username = author;
             Timestamp = DateTime.Now;
             likes = 0;
             comments = new List<String>();
+            postID = instances;
         }
         /// <summary>
         /// Record one more 'Like' indication from a user.
@@ -61,6 +66,7 @@ namespace ConsoleAppProject.App04
         public virtual void Display()
         {
             Console.WriteLine();
+            // Need to insert a PostID here
             Console.WriteLine($"    Author: {Username}");
             Console.WriteLine($"    Time Elpased: {FormatElapsedTime(Timestamp)}");
             Console.WriteLine();

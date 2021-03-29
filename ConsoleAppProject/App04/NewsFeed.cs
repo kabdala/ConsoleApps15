@@ -32,11 +32,12 @@ namespace ConsoleAppProject.App04
         public NewsFeed()
         {
             posts = new List<Post>();
-            // Testing
-            MessagePost post = new MessagePost(Author, "Hello world! You are awesome");
+
+            // Testing by placing a message post and a photo post
+            MessagePost post = new MessagePost(Author, "Hello world! You are awesome",1);
             AddMessagePost(post);
 
-            PhotoPost photoPost = new PhotoPost(Author, "pic1.jpg", "Me and my dogs!");
+            PhotoPost photoPost = new PhotoPost(Author, "pic1.jpg", "Me and my dogs!",2);
             AddPhotoPost(photoPost);
         }
 
@@ -61,6 +62,26 @@ namespace ConsoleAppProject.App04
             posts.Add(photo);
         }
 
+        /// <summary>
+        /// Remove a post from the news feed.
+        /// 
+        /// 
+        /// </summary>
+        public void RemovePost(int id)
+        {
+            Post post = FindPost(id);
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID number {id} doesn not exist");
+            }
+            else
+            {
+                Console.WriteLine($"\nPost ID {id} has been sucessfully removed");
+                posts.Remove(post);
+                post.Display();
+            }
+        }
+
         ///<summary>
         /// Show the news feed. Currently: print the news feed details to the
         /// terminal. (To do: replace this later with display in web browser.)
@@ -74,6 +95,19 @@ namespace ConsoleAppProject.App04
                 Console.WriteLine();   // empty line between posts
             }
         }
+
+        public Post FindPost(int id)
+        {
+            foreach (MessagePost post in posts)
+            {
+                if (id == post.postID)
+                {
+                    return post;
+                }
+            }
+            return null;
+        }
+        
     }
 
 }

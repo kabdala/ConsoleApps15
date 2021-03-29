@@ -73,7 +73,8 @@ namespace ConsoleAppProject.App03
         {
             //TODO: Tidy up output
             //throw new NotImplementedException();
-            Console.WriteLine("\nStudent Grade Information");
+            //Console.WriteLine("\nStudent Grade Information");
+            ConsoleHelper.OutputTitle("\nStudent Grade Information");
             // foreach loop to go through the list of students and grades
             // Call the ConvertToGrades to convert the marks to grade values
 
@@ -209,7 +210,8 @@ namespace ConsoleAppProject.App03
             CalculateGradeProfile();
             // Start with the default grade of N (NA)
             // TODO: Do not need to display the 'N' grade in the output
-            Console.WriteLine("\n## STUDENT GRADE PROFILE ##\n");
+            ConsoleHelper.OutputTitle("\n## STUDENT GRADE PROFILE ##\n");
+            //Console.WriteLine("\n## STUDENT GRADE PROFILE ##\n");
             Grades grade = Grades.N;
             foreach (int count in GradeProfile)
             {
