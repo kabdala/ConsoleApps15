@@ -48,7 +48,7 @@ namespace ConsoleAppProject.App03
             {
                 "Rod", "Jane", "Freddie",
                 "Zoltar", "Keyop", "Jason",
-                "Tiny", "Princess", "Mark",
+                "Tiny", "Prince", "Mark",
                 "Zark"
             };
 
@@ -80,7 +80,7 @@ namespace ConsoleAppProject.App03
 
             for (int i = 0; i < Students.Length; i++)
             {
-                Console.WriteLine($"{Students[i]}  {Marks[i]}  {ConvertToGrade(Marks[i])}");
+                Console.WriteLine($"Student No:{i+1}\t{Students[i]}\t{Marks[i]}\t{ConvertToGrade(Marks[i])}");
             }
             SelectChoice();
 
