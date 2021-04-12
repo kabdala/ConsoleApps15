@@ -13,11 +13,10 @@ namespace ConsoleAppProject.App04
     {
         private NewsFeed news = new NewsFeed();
 
-        private int postCount = 0;
-
         public void DisplayMenu()
         {
             ConsoleHelper.OutputHeading("NetworkApp", 0.1);
+            
             DateTime dateTime = DateTime.Now;
             Console.WriteLine("\tCurrent Date: "+dateTime.ToLongDateString());
             Console.WriteLine("\tCurrent Time: "+dateTime.ToLongTimeString());
@@ -39,6 +38,7 @@ namespace ConsoleAppProject.App04
             bool wantToQuit = false;
             do
             {
+                ConsoleHelper.OutputTitle("Main Menu");
                 int choice = ConsoleHelper.SelectChoice(choices);
                 switch (choice)
                 {
@@ -60,36 +60,58 @@ namespace ConsoleAppProject.App04
         /// Given that we're going to be asking for an author name throughout
         /// this app, it makes sense to implement a specific method for
         /// getting the 'author' that we can re-use.
-        ///
         /// </summary>
-        public string EnterAuthorName()
+        public string InputName()
         {
-            Console.WriteLine("# To post, please enter your name: ");
-            string postAuthor = Console.ReadLine();
-            return postAuthor; // pass the string back out
+            Console.Write("    # Please enter your name: ");
+            string author = Console.ReadLine();
+            return author; // pass the string back out
         }
 
         /// <summary>
-        /// Add a post message
-        ///
+        /// Add a post message; ask the user for their name then ask
+        /// for the message. Pass the message to the AddMessagePost
+        /// then display the message
         /// </summary>
         private void PostMessage()
         {
             ConsoleHelper.OutputTitle("** POST A MESSAGE **");
-            postCount++;
+            string author = InputName();
+
+            Console.Write("    # Enter your message: ");
             string message = Console.ReadLine();
             
-            // TODO: Need to have some form of ID per message so we can remove it later
-            // TODO: Need an input method to read an author name
+            MessagePost post = new MessagePost(author, message);
+            news.AddMessagePost(post);
+            post.Display();
         }
-
+        /// <summary>
+        /// Add a photo message; ask the user for their name then
+        /// ask for an image filename followed by an image caption.
+        /// Pass the author, filename and caption to AddPhotoPost 
+        /// then display the message.
+        /// </summary>
         private void PostImage()
         {
             ConsoleHelper.OutputTitle("** POST AN IMAGE **");
+            string author = InputName();
+
+            Console.Write("    # Please enter image filename: ");
+            string filename = Console.ReadLine();
+
+            Console.Write("    # Please enter image caption: ");
+            string caption = Console.ReadLine();
+
+            PhotoPost post = new PhotoPost(author, filename, caption);
+            news.AddPhotoPost(post);
+
+            post.Display();
+
         }
 
         private void DisplayAll()
         {
+            ConsoleHelper.OutputTitle("** DISPLAY ALL POSTS **");
             news.Display();
         }
 
@@ -101,13 +123,15 @@ namespace ConsoleAppProject.App04
         {
             throw new NotImplementedException();
         }
+        /// <summary>
+        /// Delete a post from the system. Get a number from the 
+        /// user by using the ConsoleHelper class 
+        /// </summary>
         private void RemovePost()
         {
             ConsoleHelper.OutputTitle("** REMOVE A POST **");
-            //Console.WriteLine("\n Please enter the ID of the post you wish to remove: ");
-            // int id = (int)ConsoleHelper.InputNumber("Please enter the post ID number: ", 1 Post.GetNumberOfPosts());
-            // TODO: Need to reference a post ID in order to delete it
-            // throw new NotImplementedException();
+            int id = (int)ConsoleHelper.InputNumber("    # Please enter the post ID to delete: ", 1, Post.GetNumberOfPosts());
+            news.RemovePost(id);
         }
 
         private void AddComment()
@@ -119,7 +143,7 @@ namespace ConsoleAppProject.App04
         {
             ConsoleHelper.OutputTitle("** LIKE OR UNLIKE A POST **");
             // Display a list of posts with ID's before choosing?
-            Console.WriteLine("Would you like to (L)ike or (U)nlike a post?");
+            Console.WriteLine("    # Would you like to (L)ike or (U)nlike a post?");
             Console.WriteLine("L / U");
             
             // throw new NotImplementedException();

@@ -22,7 +22,7 @@ namespace ConsoleAppProject.App04
     ///</author> 
     public class NewsFeed
     {
-        public const string Author = "Phill"; // Testing by setting constant variable
+        public const string author = "Phill"; // Testing by setting constant variable
         private readonly List<Post> posts;
 
 
@@ -34,11 +34,11 @@ namespace ConsoleAppProject.App04
             posts = new List<Post>();
 
             // Testing by placing a message post and a photo post
-            MessagePost post = new MessagePost(Author, "Hello world! You are awesome",1);
-            AddMessagePost(post);
+            //MessagePost post = new MessagePost(author, "Hello world! You are awesome");
+            //AddMessagePost(post);
 
-            PhotoPost photoPost = new PhotoPost(Author, "pic1.jpg", "Me and my dogs!",2);
-            AddPhotoPost(photoPost);
+            //PhotoPost photoPost = new PhotoPost(author, "pic1.jpg", "Me and my dogs!");
+            //AddPhotoPost(photoPost);
         }
 
 
@@ -64,8 +64,8 @@ namespace ConsoleAppProject.App04
 
         /// <summary>
         /// Remove a post from the news feed.
-        /// 
-        /// 
+        /// Check to see if the post exists; if it does, execute the Remove
+        /// method. If it does not exist, show an error message
         /// </summary>
         public void RemovePost(int id)
         {
@@ -89,18 +89,21 @@ namespace ConsoleAppProject.App04
         public void Display()
         {
             // display all text posts
+            
             foreach (Post post in posts)
             {
                 post.Display();
-                Console.WriteLine();   // empty line between posts
+                Console.WriteLine("\n---------------------------------------------\n");
             }
         }
-
+        /// <summary>
+        /// Locate a specific post ID within the posts
+        /// </summary>
         public Post FindPost(int id)
         {
-            foreach (MessagePost post in posts)
+            foreach (Post post in posts)
             {
-                if (id == post.postID)
+                if (post.PostID == id)
                 {
                     return post;
                 }

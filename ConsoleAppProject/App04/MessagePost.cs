@@ -30,14 +30,14 @@ namespace ConsoleAppProject.App04
         /// <param name="text">
         /// The text of this post.
         /// </param>
-        public MessagePost(String author, String text, int id): base(author, id)
+        public MessagePost(String author, String text) : base(author)
         {
             Message = text;
         }
 
         public override void Display()
         {
-            Console.WriteLine($"\tMessage: {Message}");
+            Console.WriteLine($"\n    Message: {Message}");
             base.Display();
         }
 

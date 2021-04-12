@@ -10,7 +10,7 @@ namespace ConsoleAppProject.App04
 
         private readonly List<String> comments;
 
-        public int postID { get; }
+        public int PostID { get; }
 
         public static int instances = 0;
 
@@ -18,15 +18,22 @@ namespace ConsoleAppProject.App04
 
         public DateTime Timestamp { get; }
 
-        public Post(string author, int id)
+        public Post(string author)
         {
             instances++;
             this.Username = author;
             Timestamp = DateTime.Now;
             likes = 0;
             comments = new List<String>();
-            postID = instances;
+            PostID = instances;
         }
+
+        // Get number of posts
+        public static int GetNumberOfPosts()
+        {
+            return instances;
+        }
+
         /// <summary>
         /// Record one more 'Like' indication from a user.
         /// </summary>
@@ -37,6 +44,8 @@ namespace ConsoleAppProject.App04
 
         ///<summary>
         /// Record that a user has withdrawn his/her 'Like' vote.
+        /// Ensure this can be done only if the like count is greater
+        /// than zero
         ///</summary>
         public void Unlike()
         {
@@ -66,8 +75,8 @@ namespace ConsoleAppProject.App04
         public virtual void Display()
         {
             Console.WriteLine();
-            // Need to insert a PostID here
-            Console.WriteLine($"    Author: {Username}");
+            Console.WriteLine($"    Post ID#:     {PostID}");
+            Console.WriteLine($"    Author:       {Username}");
             Console.WriteLine($"    Time Elpased: {FormatElapsedTime(Timestamp)}");
             Console.WriteLine();
 
@@ -86,7 +95,7 @@ namespace ConsoleAppProject.App04
             }
             else
             {
-                Console.WriteLine($"    {comments.Count}  comment(s). Click here to view.");
+                Console.WriteLine($"    {comments.Count}  comment(s)");
             }
         }
 
