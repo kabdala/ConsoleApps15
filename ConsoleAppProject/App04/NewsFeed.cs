@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
-
 namespace ConsoleAppProject.App04
 {
     ///<summary>
@@ -25,7 +23,6 @@ namespace ConsoleAppProject.App04
         public const string author = "Phill"; // Testing by setting constant variable
         private readonly List<Post> posts;
 
-
         ///<summary>
         /// Construct an empty news feed.
         ///</summary>
@@ -41,11 +38,8 @@ namespace ConsoleAppProject.App04
             //AddPhotoPost(photoPost);
         }
 
-
         ///<summary>
         /// Add a text post to the news feed.
-        /// 
-        /// @param text  The text post to be added.
         ///</summary>
         public void AddMessagePost(MessagePost message)
         {
@@ -54,8 +48,6 @@ namespace ConsoleAppProject.App04
 
         ///<summary>
         /// Add a photo post to the news feed.
-        /// 
-        /// @param photo  The photo post to be added.
         ///</summary>
         public void AddPhotoPost(PhotoPost photo)
         {
@@ -84,20 +76,20 @@ namespace ConsoleAppProject.App04
 
         ///<summary>
         /// Show the news feed. Currently: print the news feed details to the
-        /// terminal. (To do: replace this later with display in web browser.)
+        /// terminal. (TODO: replace this later with display in web browser.)
         ///</summary>
         public void Display()
         {
-            // display all text posts
-            
             foreach (Post post in posts)
             {
                 post.Display();
                 Console.WriteLine("\n---------------------------------------------\n");
             }
         }
+
         /// <summary>
-        /// Locate a specific post ID within the posts
+        /// Locate a specific post ID within the posts by trying to
+        /// match the ID passed to an ID already in the system
         /// </summary>
         public Post FindPost(int id)
         {

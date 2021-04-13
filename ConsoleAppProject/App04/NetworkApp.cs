@@ -7,20 +7,17 @@ namespace ConsoleAppProject.App04
 {
     /// <summary>
     /// Main app menu to call the various other methods
-    /// within the scope of this app
+    /// within the scope of this app. Loop this menu while
+    /// the boolean condition for quitting is false.
     /// </summary>
     public class NetworkApp
     {
         private NewsFeed news = new NewsFeed();
-
         public void DisplayMenu()
         {
             ConsoleHelper.OutputHeading("NetworkApp", 0.1);
-            
-            DateTime dateTime = DateTime.Now;
-            Console.WriteLine("\tCurrent Date: "+dateTime.ToLongDateString());
-            Console.WriteLine("\tCurrent Time: "+dateTime.ToLongTimeString());
-            Console.WriteLine("\t-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+
+            CurrentDateAndTime();
 
             string[] choices = new string[]
             {
@@ -147,6 +144,14 @@ namespace ConsoleAppProject.App04
             Console.WriteLine("L / U");
             
             // throw new NotImplementedException();
+        }
+
+        private void CurrentDateAndTime()
+        {
+            DateTime dateTime = DateTime.Now;
+            Console.WriteLine("\tCurrent Date: " + dateTime.ToLongDateString());
+            Console.WriteLine("\tCurrent Time: " + dateTime.ToLongTimeString());
+            Console.WriteLine("\t-=-=-=-=-=-=-=-=-=-=-=-=-\n");
         }
 
     }
