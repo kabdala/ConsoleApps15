@@ -70,8 +70,51 @@ namespace ConsoleAppProject.App04
             {
                 Console.WriteLine($"\nPost ID {id} has been sucessfully removed");
                 posts.Remove(post);
-                post.Display();
+                //post.Display();
             }
+        }
+
+        public void AddComment(int id, string comment)
+        {
+            Post post = FindPost(id);
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID number {id} doesn not exist");
+            }
+            else
+            {
+                Console.WriteLine($"\nComment added to post ID {id}");
+                post.AddComment(comment);
+
+            }
+        }
+
+        public void AddLike(int id)
+        {
+            Post post = FindPost(id);
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID number {id} doesn not exist");
+            }
+            else
+            {
+                Console.WriteLine($"\nLike added to post ID {id}");
+            }
+            post.Like();
+        }
+
+        public void UnlikePost(int id)
+        {
+            Post post = FindPost(id);
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID number {id} doesn not exist");
+            }
+            else
+            {
+                Console.WriteLine($"\nUnliked post ID {id}");
+            }
+            post.Unlike();
         }
 
         ///<summary>

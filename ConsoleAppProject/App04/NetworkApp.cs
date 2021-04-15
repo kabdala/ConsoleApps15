@@ -17,7 +17,7 @@ namespace ConsoleAppProject.App04
         {
             ConsoleHelper.OutputHeading("NetworkApp", 0.1);
 
-            CurrentDateAndTime();
+            DisplayCurrentDateAndTime();
 
             string[] choices = new string[]
             {
@@ -80,6 +80,7 @@ namespace ConsoleAppProject.App04
             
             MessagePost post = new MessagePost(author, message);
             news.AddMessagePost(post);
+            PostSuccessMessage();
             post.Display();
         }
         /// <summary>
@@ -101,7 +102,7 @@ namespace ConsoleAppProject.App04
 
             PhotoPost post = new PhotoPost(author, filename, caption);
             news.AddPhotoPost(post);
-
+            PostSuccessMessage();
             post.Display();
 
         }
@@ -114,10 +115,12 @@ namespace ConsoleAppProject.App04
 
         private void DisplayByDate()
         {
+            ConsoleHelper.OutputTitle("** DISPLAY POSTS BY DATE **");
             throw new NotImplementedException();
         }
         private void DisplayByAuthor()
         {
+            ConsoleHelper.OutputTitle("** DISPLAY POSTS BY AUTHOR **");
             throw new NotImplementedException();
         }
         /// <summary>
@@ -130,28 +133,60 @@ namespace ConsoleAppProject.App04
             int id = (int)ConsoleHelper.InputNumber("    # Please enter the post ID to delete: ", 1, Post.GetNumberOfPosts());
             news.RemovePost(id);
         }
-
+        /// <summary>
+        /// Add a comment to a post. Ask user for ID number of comment
+        /// </summary>
         private void AddComment()
         {
-            throw new NotImplementedException();
-        }
+            //throw new NotImplementedException();
+            ConsoleHelper.OutputTitle("** ADD COMMENT **");
+            int id = (int)ConsoleHelper.InputNumber("    # Please enter the post ID to add a comment: ", 1, Post.GetNumberOfPosts());
 
+            Console.Write("    # Please enter your comment: ");
+            string comment = Console.ReadLine();
+            news.AddComment(id, comment);
+        }
+        /// <summary>
+        /// Like or unlike a post. Ask use for ID number of post
+        /// </summary>
         private void LikeOrUnlikePost()
         {
             ConsoleHelper.OutputTitle("** LIKE OR UNLIKE A POST **");
-            // Display a list of posts with ID's before choosing?
-            Console.WriteLine("    # Would you like to (L)ike or (U)nlike a post?");
-            Console.WriteLine("L / U");
-            
-            // throw new NotImplementedException();
-        }
 
-        private void CurrentDateAndTime()
+            // TODO: Display a list of posts with ID's before choosing?
+
+            Console.Write("    # Would you like to (1) Like or (2) unlike a post?: ");
+            string likeOrUnlike = Console.ReadLine();
+
+            if(likeOrUnlike == "1")
+            {
+                int id = (int)ConsoleHelper.InputNumber("    # Please enter the post ID to add a like: ", 1, Post.GetNumberOfPosts());
+                news.AddLike(id);
+            }
+            else if (likeOrUnlike == "2")
+            {
+                int id = (int)ConsoleHelper.InputNumber("    # Please enter the post ID to add a unlike: ", 1, Post.GetNumberOfPosts());
+                news.UnlikePost(id);
+            }
+           
+        }
+        /// <summary>
+        /// Short method to display the current date and time to the user
+        /// </summary>
+        private void DisplayCurrentDateAndTime()
         {
             DateTime dateTime = DateTime.Now;
             Console.WriteLine("\tCurrent Date: " + dateTime.ToLongDateString());
             Console.WriteLine("\tCurrent Time: " + dateTime.ToLongTimeString());
             Console.WriteLine("\t-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+        }
+        /// <summary>
+        /// Display a success message to the user when they have made
+        /// a post
+        /// </summary>
+        private void PostSuccessMessage()
+        {
+            Console.WriteLine("Your message was posted sucessfully");
         }
 
     }

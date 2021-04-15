@@ -57,18 +57,14 @@ namespace ConsoleAppProject.App04
 
         ///<summary>
         /// Add a comment to this post.
-        /// </summary>
-        /// <param name="text">
-        /// The new comment to add.
-        /// </param>        
-        public void AddComment(String text)
+        /// </summary>    
+        public void AddComment(String commentText)
         {
-            comments.Add(text);
+            comments.Add(commentText);
         }
 
         ///<summary>
         /// Display the details of this post.
-        /// 
         /// (Currently: Print to the text terminal. This is simulating display 
         /// in a web browser for now.)
         ///</summary>
@@ -95,7 +91,22 @@ namespace ConsoleAppProject.App04
             }
             else
             {
-                Console.WriteLine($"    {comments.Count}  comment(s)");
+                DisplayComments();
+            }
+        }
+
+        /// <summary>
+        /// Refactored as it made sense to have the display comments
+        /// as a separate method
+        /// </summary>
+        public void DisplayComments()
+        {
+            int commentNumber = 0;
+            Console.WriteLine($"    {comments.Count}  comment(s)");
+            foreach (string comment in comments)
+            {
+                commentNumber++;
+                Console.WriteLine($"    Comment: {commentNumber}    {comment}\n");
             }
         }
 
