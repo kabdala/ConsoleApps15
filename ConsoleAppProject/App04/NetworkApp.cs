@@ -83,6 +83,7 @@ namespace ConsoleAppProject.App04
             PostSuccessMessage();
             post.Display();
         }
+
         /// <summary>
         /// Add a photo message; ask the user for their name then
         /// ask for an image filename followed by an image caption.
@@ -104,7 +105,6 @@ namespace ConsoleAppProject.App04
             news.AddPhotoPost(post);
             PostSuccessMessage();
             post.Display();
-
         }
 
         private void DisplayAll()
@@ -116,13 +116,14 @@ namespace ConsoleAppProject.App04
         private void DisplayByDate()
         {
             ConsoleHelper.OutputTitle("** DISPLAY POSTS BY DATE **");
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
         private void DisplayByAuthor()
         {
             ConsoleHelper.OutputTitle("** DISPLAY POSTS BY AUTHOR **");
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
+
         /// <summary>
         /// Delete a post from the system. Get a number from the 
         /// user by using the ConsoleHelper class 
@@ -133,6 +134,7 @@ namespace ConsoleAppProject.App04
             int id = (int)ConsoleHelper.InputNumber("    # Please enter the post ID to delete: ", 1, Post.GetNumberOfPosts());
             news.RemovePost(id);
         }
+
         /// <summary>
         /// Add a comment to a post. Ask user for ID number of comment
         /// </summary>
@@ -146,6 +148,7 @@ namespace ConsoleAppProject.App04
             string comment = Console.ReadLine();
             news.AddComment(id, comment);
         }
+
         /// <summary>
         /// Like or unlike a post. Ask use for ID number of post
         /// </summary>
@@ -170,6 +173,7 @@ namespace ConsoleAppProject.App04
             }
            
         }
+
         /// <summary>
         /// Short method to display the current date and time to the user
         /// </summary>
@@ -180,6 +184,7 @@ namespace ConsoleAppProject.App04
             Console.WriteLine("\tCurrent Time: " + dateTime.ToLongTimeString());
             Console.WriteLine("\t-=-=-=-=-=-=-=-=-=-=-=-=-\n");
         }
+
         /// <summary>
         /// Display a success message to the user when they have made
         /// a post
@@ -188,6 +193,5 @@ namespace ConsoleAppProject.App04
         {
             Console.WriteLine("Your message was posted sucessfully");
         }
-
     }
 }

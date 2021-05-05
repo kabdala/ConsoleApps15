@@ -228,14 +228,208 @@ namespace ConsoleApp.Tests
             BMI bmi = new BMI();
 
             // 2. Act
-            bmi.Kilos = 97.7;
-            bmi.Metres = 1.93;
+            bmi.Kilos = 70.5;
+            bmi.Metres = 1.524;
             bmi.CalculateMetricBMI();
 
-            double expectedBMI = 26;
+            double expectedBMI = 30;
 
             // 3. Assert
             Assert.AreEqual(expectedBMI, Math.Floor(bmi.BMIValue));
         }
+
+        [TestMethod]
+        public void TestLowObeseClassOneImperial()
+        {
+            // 1. Arrange
+            BMI bmi = new BMI();
+
+            // 2. Act
+            bmi.Pounds = 155;
+            bmi.Feet = 5;
+            bmi.Inches = 0;
+            bmi.CalculateImperialBMI();
+
+            double expectedBMI = 30;
+
+            // 3. Assert
+            Assert.AreEqual(expectedBMI, Math.Floor(bmi.BMIValue));
+        }
+
+        [TestMethod]
+        public void TestHighObeseClassOneMetric()
+        {
+            // 1. Arrange
+            BMI bmi = new BMI();
+
+            // 2. Act
+            bmi.Kilos = 70.5;
+            bmi.Metres = 1.524;
+            bmi.CalculateMetricBMI();
+
+            double expectedBMI = 34;
+
+            // 3. Assert
+            Assert.AreEqual(expectedBMI, Math.Floor(bmi.BMIValue));
+        }
+
+        [TestMethod]
+        public void TestHighObeseClassOneImperial()
+        {
+            // 1. Arrange
+            BMI bmi = new BMI();
+
+            // 2. Act
+            bmi.Pounds = 155;
+            bmi.Feet = 5;
+            bmi.Inches = 0;
+            bmi.CalculateImperialBMI();
+
+            double expectedBMI = 34;
+
+            // 3. Assert
+            Assert.AreEqual(expectedBMI, Math.Floor(bmi.BMIValue));
+        }
+
+        [TestMethod]
+        public void TestLowObeseClassTwoMetric()
+        {
+            // 1. Arrange
+            BMI bmi = new BMI();
+
+            // 2. Act
+            bmi.Kilos = 0;
+            bmi.Metres = 0;
+            bmi.CalculateMetricBMI();
+
+            double expectedBMI = 0;
+
+            // 3. Assert
+            Assert.AreEqual(expectedBMI, Math.Floor(bmi.BMIValue));
+        }
+
+        [TestMethod]
+        public void TestLowObeseClassTwoImperial()
+        {
+            // 1. Arrange
+            BMI bmi = new BMI();
+
+            // 2. Act
+            bmi.Pounds = 0;
+            bmi.Feet = 0;
+            bmi.Inches = 0;
+            bmi.CalculateImperialBMI();
+
+            double expectedBMI = 0;
+
+            // 3. Assert
+            Assert.AreEqual(expectedBMI, Math.Floor(bmi.BMIValue));
+        }
+
+        [TestMethod]
+        public void TestHighObeseClassTwoMetric()
+        {
+            // 1. Arrange
+            BMI bmi = new BMI();
+
+            // 2. Act
+            bmi.Kilos = 0;
+            bmi.Metres = 0;
+            bmi.CalculateMetricBMI();
+
+            double expectedBMI = 0;
+
+            // 3. Assert
+            Assert.AreEqual(expectedBMI, Math.Floor(bmi.BMIValue));
+        }
+
+        [TestMethod]
+        public void TestHighObeseClassTwoImperial()
+        {
+            // 1. Arrange
+            BMI bmi = new BMI();
+
+            // 2. Act
+            bmi.Pounds = 0;
+            bmi.Feet = 0;
+            bmi.Inches = 0;
+            bmi.CalculateImperialBMI();
+
+            double expectedBMI = 0;
+
+            // 3. Assert
+            Assert.AreEqual(expectedBMI, Math.Floor(bmi.BMIValue));
+        }
+
+        [TestMethod]
+        public void TestLowObeseClassThreeMetric()
+        {
+            // 1. Arrange
+            BMI bmi = new BMI();
+
+            // 2. Act
+            bmi.Kilos = 0;
+            bmi.Metres = 0;
+            bmi.CalculateMetricBMI();
+
+            double expectedBMI = 0;
+
+            // 3. Assert
+            Assert.AreEqual(expectedBMI, Math.Floor(bmi.BMIValue));
+        }
+
+        [TestMethod]
+        public void TestLowObeseClassThreeImperial()
+        {
+            // 1. Arrange
+            BMI bmi = new BMI();
+
+            // 2. Act
+            bmi.Pounds = 0;
+            bmi.Feet = 0;
+            bmi.Inches = 0;
+            bmi.CalculateImperialBMI();
+
+            double expectedBMI = 0;
+
+            // 3. Assert
+            Assert.AreEqual(expectedBMI, Math.Floor(bmi.BMIValue));
+        }
+
+        [TestMethod]
+        public void TestHighObeseClassThreeMetric()
+        {
+            // 1. Arrange
+            BMI bmi = new BMI();
+
+            // 2. Act
+            bmi.Kilos = 0;
+            bmi.Metres = 0;
+            bmi.CalculateMetricBMI();
+
+            double expectedBMI = 0;
+
+            // 3. Assert
+            Assert.AreEqual(expectedBMI, Math.Floor(bmi.BMIValue));
+        }
+
+        [TestMethod]
+        public void TestHighObeseClassThreeImperial()
+        {
+            // 1. Arrange
+            BMI bmi = new BMI();
+
+            // 2. Act
+            bmi.Pounds = 0;
+            bmi.Feet = 0;
+            bmi.Inches = 0;
+            bmi.CalculateImperialBMI();
+
+            double expectedBMI = 0;
+
+            // 3. Assert
+            Assert.AreEqual(expectedBMI, Math.Floor(bmi.BMIValue));
+        }
+
     }
 }
